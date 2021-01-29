@@ -1,0 +1,7 @@
+{
+  "name": "willdo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
