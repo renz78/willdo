@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">willdo</string>
+    <string name="title_activity_main">willdo</string>
+    <string name="package_name">ua.com.willdo</string>
+    <string name="custom_url_scheme">ua.com.willdo</string>
+</resources>
