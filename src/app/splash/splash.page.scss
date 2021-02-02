@@ -17,12 +17,13 @@ ion-content {
         left: 0;
         overflow: hidden;
         z-index: -100;
+        width: 100%;
     }
       .center {
         top: 50%;
         transform: translateY(-50%);
         position: absolute !important;
         text-align: center;
-        width:50%;
+        width:100%;
     }
 }
