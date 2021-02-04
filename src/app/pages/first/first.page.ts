@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-first',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {
+    
+   }
 
   ngOnInit() {
+  }
+
+  gotoSecondPage(): void{
+    this.navCtrl.navigateForward('second');
   }
 
 }

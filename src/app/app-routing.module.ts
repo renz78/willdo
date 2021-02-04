@@ -21,7 +21,19 @@ const routes: Routes = [
   {
     path: 'first',
     loadChildren: () => import('./pages/first/first.module').then( m => m.FirstPageModule)
+  },  {
+    path: 'second',
+    loadChildren: () => import('./pages/second/second.module').then( m => m.SecondPageModule)
+  },
+  {
+    path: 'firstzak',
+    loadChildren: () => import('./pages/firstzak/firstzak.module').then( m => m.FirstzakPageModule)
+  },
+  {
+    path: 'firstisp',
+    loadChildren: () => import('./pages/firstisp/firstisp.module').then( m => m.FirstispPageModule)
   }
+
 
 ];
 @NgModule({
