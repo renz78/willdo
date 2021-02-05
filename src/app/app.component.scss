@@ -13,3 +13,11 @@ ion-content {
     background-repeat: no-repeat;
     background-size: cover;
   }  
+
+  $colors: (
+    primary:    #1c1e22,
+    secondary:  #FFE300,
+    danger:     #f53d3d,
+    light:      #c8c8c8,
+    dark:       #272b30
+  );  

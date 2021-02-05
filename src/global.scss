@@ -26,3 +26,9 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 @import '~animate.css/animate.min.css';
+
+
+ion-content {
+    --background: url('assets/img/bg.png') no-repeat center/cover fixed;
+  }   
+  

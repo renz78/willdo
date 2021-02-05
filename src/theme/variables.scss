@@ -74,6 +74,15 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  $colors: (
+    primary:    #1c1e22,
+    secondary:  #FFE300,
+    danger:     #f53d3d,
+    light:      #c8c8c8,
+    dark:       #272b30
+  );  
+  --ion-padding: 10rem;
 }
 
 @media (prefers-color-scheme: dark) {
