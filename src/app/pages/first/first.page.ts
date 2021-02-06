@@ -20,4 +20,8 @@ export class FirstPage implements OnInit {
     this.navCtrl.navigateForward('second');
   }
 
+  gotoSharePage(): void{
+    this.navCtrl.navigateForward('second');
+  }
+
 }
