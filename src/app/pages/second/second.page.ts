@@ -19,4 +19,12 @@ export class SecondPage implements OnInit {
       this.navCtrl.navigateForward('firstisp');
     }
   }
+
+  gotoSecondPage(): void{
+    this.navCtrl.navigateForward('tabs/first');
+  }
+
+  gotoSharePage(): void{
+    this.navCtrl.navigateForward('tabs/first');
+  }
 }

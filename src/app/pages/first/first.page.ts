@@ -21,7 +21,7 @@ export class FirstPage implements OnInit {
   }
 
   gotoSharePage(): void{
-    this.navCtrl.navigateForward('tabs/second');
+    this.navCtrl.navigateForward('tabs/tab1');
   }
 
 }
