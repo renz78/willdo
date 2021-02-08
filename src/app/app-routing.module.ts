@@ -21,7 +21,8 @@ const routes: Routes = [
   {
     path: 'first',
     loadChildren: () => import('./pages/first/first.module').then( m => m.FirstPageModule)
-  },  {
+  },
+  {
     path: 'second',
     loadChildren: () => import('./pages/second/second.module').then( m => m.SecondPageModule)
   },
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'firstisp',
     loadChildren: () => import('./pages/firstisp/firstisp.module').then( m => m.FirstispPageModule)
+  },
+  {
+    path: 'map',
+    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
   }
 
 

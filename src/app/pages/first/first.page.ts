@@ -17,11 +17,11 @@ export class FirstPage implements OnInit {
   }
 
   gotoSecondPage(): void{
-    this.navCtrl.navigateForward('second');
+    this.navCtrl.navigateForward('tabs/second');
   }
 
   gotoSharePage(): void{
-    this.navCtrl.navigateForward('second');
+    this.navCtrl.navigateForward('tabs/second');
   }
 
 }

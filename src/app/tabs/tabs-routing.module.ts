@@ -24,12 +24,20 @@ const routes: Routes = [
         loadChildren: () => import('../settings/settings.module').then(m => m.SettingsPageModule)
       },
       {
+        path: 'map',
+        loadChildren: () => import('../map/map.module').then(m => m.MapPageModule)
+      },
+      {
         path: 'chat',
         loadChildren: () => import('../chat/chat.module').then(m => m.ChatPageModule)
       },
       {
         path: 'first',
         loadChildren: () => import('../pages/first/first.module').then( m => m.FirstPageModule)
+      },
+      {
+        path: 'second',
+        loadChildren: () => import('../pages/second/second.module').then( m => m.SecondPageModule)
       },
       {
         path: '',
