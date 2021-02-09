@@ -40,6 +40,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/second/second.module').then( m => m.SecondPageModule)
       },
       {
+        path: 'home',
+        loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

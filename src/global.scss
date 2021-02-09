@@ -28,7 +28,10 @@
 @import '~animate.css/animate.min.css';
 
 
-ion-content {
+  ion-content {
     --background: url('assets/img/bg.png') no-repeat center/cover fixed;
   }   
   
+  ion-button {
+    --background: #d24a43;
+  }  

@@ -4,7 +4,7 @@ import { ViewChild, ElementRef } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 
-declare var google;
+declare var google: any;
 
 @Component({
   selector: 'app-map',
@@ -12,10 +12,16 @@ declare var google;
   styleUrls: ['./map.page.scss'],
 })
 export class MapPage implements OnInit {
+  @ViewChild('map', { static: false }) mapElement: ElementRef;
+  map: any;
+  address: string;
 
-  constructor(private geolocation: Geolocation,
-    private nativeGeocoder: NativeGeocoder) { }
-
+  latitude: number;
+  longitude: number;
+  constructor(
+    private geolocation: Geolocation,
+    private nativeGeocoder: NativeGeocoder) {
+  }
   ngOnInit() {
     this.loadMap();
   }
@@ -25,11 +31,12 @@ export class MapPage implements OnInit {
       this.latitude = resp.coords.latitude;
       this.longitude = resp.coords.longitude;
 
-      let latLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
-      let mapOptions = {
+      const latLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
+      const mapOptions = {
         center: latLng,
         zoom: 15,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        disableDefaultUI: true
+        // mapTypeId: google.maps.MapTypeId.ROADMAP
       }
 
       this.getAddressFromCoords(resp.coords.latitude, resp.coords.longitude);
@@ -46,6 +53,7 @@ export class MapPage implements OnInit {
 
     }).catch((error) => {
       console.log('Error getting location', error);
+      //alert('Error getting location' + error);
     });
   }
 
