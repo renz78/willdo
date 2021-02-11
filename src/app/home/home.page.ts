@@ -10,7 +10,7 @@ declare var google: any;
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
+  pagename: string = 'Ваше местоположение';
   map: any;
 
   @ViewChild('map', {read: ElementRef, static: false}) mapRef: ElementRef;

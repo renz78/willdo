@@ -40,6 +40,10 @@ const routes: Routes = [
   },  {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'common',
+    loadChildren: () => import('./pages/common/common.module').then( m => m.CommonPageModule)
   }
 
 

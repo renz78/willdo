@@ -3,6 +3,7 @@ import { ViewChild, ElementRef } from '@angular/core';
 
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
+import { UserService } from '../services/user.service';
 
 declare var google: any;
 
@@ -13,6 +14,7 @@ declare var google: any;
 })
 export class MapPage implements OnInit {
   @ViewChild('map', { static: false }) mapElement: ElementRef;
+  pagename: string = 'Ваше местоположение';
   map: any;
   address: string;
 
@@ -20,11 +22,19 @@ export class MapPage implements OnInit {
   longitude: number;
   constructor(
     private geolocation: Geolocation,
-    private nativeGeocoder: NativeGeocoder) {
+    private nativeGeocoder: NativeGeocoder,
+    private  userService: UserService) {
   }
   ngOnInit() {
     this.loadMap();
+    
   }
+
+  qwer(){
+    this.userService.func();
+    console.log(this.userService.user);
+  }
+
   loadMap() {
     this.geolocation.getCurrentPosition().then((resp) => {
 
@@ -84,4 +94,6 @@ export class MapPage implements OnInit {
       });
 
   }
+  
+ 
 }

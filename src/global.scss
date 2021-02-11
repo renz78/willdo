@@ -34,4 +34,35 @@
   
   ion-button {
     --background: #d24a43;
-  }  
+  } 
+  
+  ion-toolbar {
+    --background: #e6e6e6;
+  }
+
+  ion-menu-button{
+    color:  #e58b1e;
+    
+  }
+  .wdobtn{
+    color:  #e58b1e;
+    margin-right: 10px;
+  }
+  ion-menu{
+    // --background: #e6e6e6;
+  }
+  .ion-item-background{
+    --background: #e6e6e6;
+  }
+
+  ion-back-button{
+    color:  #e58b1e;
+  }
+
+  .mnu {
+    // display: inline-block;
+    // border-radius: 60px;
+    // box-shadow: 0px 0px 2px#e58b1e;;
+    // padding: 0.5em 0.6em;
+  
+  }
