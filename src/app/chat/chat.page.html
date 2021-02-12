@@ -1,6 +1,12 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Chat</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="wdotext"><i class="fa fa-arrow-left"></i> Ваши сообщения</ion-title>
+    <ion-buttons slot="end" (click)="gotoSharePage()">
+        <i class="fa fa-share-alt wdobtn" style="font-size:22px;"></i>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

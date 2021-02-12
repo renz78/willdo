@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { CommonPage } from './common.page';
+import { RegzakPage } from './regzak.page';
 
-describe('CommonPage', () => {
-  let component: CommonPage;
-  let fixture: ComponentFixture<CommonPage>;
+describe('RegzakPage', () => {
+  let component: RegzakPage;
+  let fixture: ComponentFixture<RegzakPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CommonPage ],
+      declarations: [ RegzakPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CommonPage);
+    fixture = TestBed.createComponent(RegzakPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

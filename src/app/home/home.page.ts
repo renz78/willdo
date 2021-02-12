@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ViewChild, ElementRef } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NavController } from '@ionic/angular';
 
 declare var google: any;
 
@@ -46,7 +47,7 @@ export class HomePage {
     }
   ];
 
-  constructor(private geolocation: Geolocation) {}
+  constructor(private geolocation: Geolocation, private navCtrl: NavController) {}
 
   ionViewDidEnter() {
     this.getGeolocation();
@@ -110,27 +111,13 @@ export class HomePage {
     }
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);
     this.addMarkersToMap(this.markers);
-      // resp.coords.longitude
-      
      }).catch((error) => {
        console.log('Error getting location', error);
      });
-     
-    
-    //  let watch = this.geolocation.watchPosition();
-    //  watch.subscribe((data) => {
-    //   // data can be a set of coordinates, or an error (if an error occurred).
-    //   // data.coords.latitude
-    //   // data.coords.longitude
-    //  });
-    
-     //this.showMap(this.mylatitude, this.mylongitude);
   }
-  showMap(mylatitude, mylongitude) {
-    
-    
-  }
-
+    gotoSharePage(): void{
+      this.navCtrl.navigateForward('tabs/share');
+    }
 
   
 

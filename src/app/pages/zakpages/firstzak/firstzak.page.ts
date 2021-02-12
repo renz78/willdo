@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-firstzak',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstzakPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
   }
-
+  gotoRegZakPage(): void{
+    this.navCtrl.navigateForward('tabs/regzak');
+  }
 }

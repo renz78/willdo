@@ -1,0 +1,20 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+import { IonicModule } from '@ionic/angular';
+
+import { RegzakPageRoutingModule } from './regzak-routing.module';
+
+import { RegzakPage } from './regzak.page';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    RegzakPageRoutingModule
+  ],
+  declarations: [RegzakPage]
+})
+export class RegzakPageModule {}

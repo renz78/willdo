@@ -1,11 +1,21 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      Settings
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="m1"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="wdotext"><i class="fa fa-arrow-left"></i> Инструкция по оплате</ion-title>
+    <ion-buttons slot="end" (click)="gotoSharePage()">
+        <i class="fa fa-share-alt wdobtn" style="font-size:22px;"></i>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="backgound-image" [fullscreen]="true">
-  gdfgd
+<ion-content [fullscreen]="true">
+  <ion-grid>
+  <ion-row>
+    <ion-col>
+      Инструкция по оплате........
+    </ion-col>
+  </ion-row>
+  </ion-grid>
 </ion-content>

@@ -14,17 +14,17 @@ export class SecondPage implements OnInit {
   }
   goAnOtherPage(arg: number){
     if (arg === 1) {
-      this.navCtrl.navigateForward('firstzak');
+      this.navCtrl.navigateForward('tabs/firstzak');
     } else {
-      this.navCtrl.navigateForward('firstisp');
+      this.navCtrl.navigateForward('tabs/firstisp');
     }
   }
 
   gotoSecondPage(): void{
-    this.navCtrl.navigateForward('tabs/first');
+    this.navCtrl.navigateForward('tabs/second');
   }
 
   gotoSharePage(): void{
-    this.navCtrl.navigateForward('tabs/first');
+    this.navCtrl.navigateForward('tabs/share');
   }
 }

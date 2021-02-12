@@ -8,7 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { FirstPageRoutingModule } from './first-routing.module';
 
 import { FirstPage } from './first.page';
-import { ExploreContainerComponentModule } from './../../explore-container/explore-container.module';
+import { ExploreContainerComponentModule } from '../../../explore-container/explore-container.module';
 
 @NgModule({
   imports: [
