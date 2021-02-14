@@ -8,13 +8,23 @@ import { Router } from '@angular/router';
 })
 export class SplashPage implements OnInit {
 
+  isshow: any = 0;
   constructor(public router: Router) { 
-    setTimeout(() => {
-      this.router.navigateByUrl('tabs/first');
-    },6000)
+    
   }
 
   ngOnInit() {
+    
+    this.isshow++;
+    if (this.isshow == 1) {
+      setTimeout(() => {
+        this.router.navigateByUrl('tabs/first');
+      },6000);
+    } else {
+      this.router.navigateByUrl('tabs/second');
+    }
+    
+    
   }
 
   

@@ -24,6 +24,7 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.router.navigateByUrl('splash');
+      
       // this.splashScreen.hide();
     });
   }

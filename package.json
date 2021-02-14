@@ -30,6 +30,8 @@
     "animate.css": "^4.1.1",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-nativegeocoder": "^3.4.1",
+    "cordova-plugin-x-socialsharing": "^6.0.3",
+    "es6-promise-plugin": "^4.2.2",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

@@ -15,4 +15,3 @@ export class Tab3Page {
     this.navCtrl.navigateForward('tabs/share');
   }
 }
-y
