@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./share.page.scss'],
 })
 export class SharePage implements OnInit {
-
+  pagename: any = ' Пригласить';
   constructor() { }
 
   ngOnInit() {

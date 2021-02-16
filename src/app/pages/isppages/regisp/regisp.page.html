@@ -1,9 +1,77 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>regisp</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-backbtn>{{pagename}}</app-backbtn>
 
-<ion-content>
+<ion-content fullscreen>
+  <ion-grid class="">   
+    <form (ngSubmit)="logForm()">
+      <ion-row class="">
+        <ion-col size="10" offset="1">
+          <ion-input type="text" required placeholder="ФИО"></ion-input>
+          <ion-input type="text" required placeholder="Ваш Email"></ion-input>
+          <ion-input type="text" required placeholder="Ваш контактный телефон"></ion-input>
+          <ion-input type="text" required placeholder="Страна, город, улица, дом"></ion-input>
+        </ion-col>
+      
+        <ion-col size="4" offset="1" >
+          <span class="">Тип аккаунта</span>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select interface="popover">
+            <ion-select-option value="isp">Исполнитель</ion-select-option>
+            <ion-select-option value="zak">Заказчик</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col size="4" offset="1" >
+          <span class="ion-padding-top">Выбор языка</span>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select interface="popover">
+            <ion-select-option value="ukr">Украинский</ion-select-option>
+            <ion-select-option value="eng">Английский</ion-select-option>
+            <ion-select-option value="rus">Русский</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col size="4" offset="1" >
+          <span class="ion-padding-top">Оплата</span>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select interface="popover">
+            <ion-select-option value="ukr">Наличные</ion-select-option>
+            <ion-select-option value="eng">Банковская карта</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col size="10" offset="1">
+          <ion-input type="password" required placeholder="Пароль"></ion-input>
+          <ion-input type="password" required placeholder="Повторите пароль"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+          <ion-col size="3">
+            <div class="ion-text-center">
+              <ion-icon name="add-circle-outline" clas="regicon"></ion-icon>
+              Загрузить фото
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="ion-text-center"> 
+            <ion-icon name="camera-outline" clas="regicon"></ion-icon>
+              Сфотографироваться
+            </div> 
+          </ion-col>
+          <ion-col size="3">
+            <div class="ion-text-center">
+              <ion-icon name="caret-forward-circle-outline" clas="regicon"></ion-icon>
+              Создать презентацию
+            </div>  
+          </ion-col>
+        </ion-row>
 
+      <ion-row class="ion-align-self-center">
+        <ion-col class="">
+          <div class="ion-text-center" >    
+            <ion-button class="primary" type="submit" style="width:70%" shape="round" >Зарегистрироваться</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>   
 </ion-content>

@@ -21,15 +21,15 @@ const routes: Routes = [
       },
       {
         path: 'settings',
-        loadChildren: () => import('../settings/settings.module').then(m => m.SettingsPageModule)
+        loadChildren: () => import('../pages/compages/settings/settings.module').then(m => m.SettingsPageModule)
       },
       {
         path: 'map',
-        loadChildren: () => import('../map/map.module').then(m => m.MapPageModule)
+        loadChildren: () => import('../test/map/map.module').then(m => m.MapPageModule)
       },
       {
         path: 'chat',
-        loadChildren: () => import('../chat/chat.module').then(m => m.ChatPageModule)
+        loadChildren: () => import('../pages/compages/chat/chat.module').then(m => m.ChatPageModule)
       },
       {
         path: 'first',
@@ -40,8 +40,8 @@ const routes: Routes = [
         loadChildren: () => import('../pages/compages/second/second.module').then( m => m.SecondPageModule)
       },
       {
-        path: 'home',
-        loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
+        path: 'location',
+        loadChildren: () => import('../pages/compages/location/location.module').then( m => m.LocationPageModule)
       },
       {
         path: 'regzak',
@@ -63,6 +63,40 @@ const routes: Routes = [
         path: 'share',
         loadChildren: () => import('../pages/compages/share/share.module').then( m => m.SharePageModule)
       },
+      {
+        path: 'profileisp',
+        loadChildren: () => import('../pages/isppages/profileisp/profileisp.module').then( m => m.ProfileispPageModule)
+      },
+      {
+        path: 'profilezak',
+        loadChildren: () => import('../pages/zakpages/profilezak/profilezak.module').then( m => m.ProfilezakPageModule)
+      },
+      {
+        path: 'langs',
+        loadChildren: () => import('../pages/compages/langs/langs.module').then( m => m.LangsPageModule)
+      },
+      {
+        path: 'walletisp',
+        loadChildren: () => import('../pages/isppages/walletisp/walletisp.module').then( m => m.WalletispPageModule)
+      },
+      {
+        path: 'walletzak',
+        loadChildren: () => import('../pages/zakpages/walletzak/walletzak.module').then( m => m.WalletzakPageModule)
+      },
+      {
+        path: 'chooseworker',
+        loadChildren: () => import('../pages/compages/chooseworker/chooseworker.module').then( m => m.ChooseworkerPageModule)
+      },
+      {
+        path: 'chooseworker-detail',
+        loadChildren: () => import('../pages/compages/chooseworker-detail/chooseworker-detail.module').then( m => m.ChooseworkerDetailPageModule)
+      },
+      {
+        path: 'myrating',
+        loadChildren: () => import('../pages/isppages/myrating/myrating.module').then( m => m.MyratingPageModule)
+      },
+    
+    
       {
         path: '',
         redirectTo: '/tabs/tab1',

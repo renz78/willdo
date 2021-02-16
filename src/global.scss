@@ -62,5 +62,35 @@
     color:  #e58b1e;
   }
   .shareicon {
-    width:  65px;
+    width: 65px;
   }
+  .regicon {
+    width: 35px!important;
+  }
+  ion-input {
+    padding-top: 2px!important;
+    padding-bottom: 2px!important;
+    border-radius: 20px !important;
+    padding-left: 20px !important;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    border: 1px solid #ffffff;
+    border-bottom: 0px !important;
+    box-shadow: none !important;
+    background-color: #ffffff!important;
+}
+ion-select{
+    // border-radius: 20px !important;
+    padding-top: 1px!important;
+    padding-bottom: 1px!important;
+    padding-left: 10px !important;
+    font-size: 0.9em;
+    margin-bottom: 1px;
+    border: 1px solid #ffffff;
+    border-bottom: 0px !important;
+    box-shadow: none !important;
+    background-color: #ffffff!important;
+}
+.backbtn {
+  font-size: 2rem;
+}
