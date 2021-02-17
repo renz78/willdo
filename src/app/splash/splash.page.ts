@@ -19,7 +19,7 @@ export class SplashPage implements OnInit {
     if (this.isshow == 1) {
       setTimeout(() => {
         this.router.navigateByUrl('tabs/first');
-      },6000);
+      },600);
     } else {
       this.router.navigateByUrl('tabs/second');
     }

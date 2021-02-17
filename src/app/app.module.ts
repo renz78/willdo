@@ -14,9 +14,10 @@ import { AppComponent } from './app.component';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 
-import { StarRatingModule } from 'ionic5-star-rating';
-import { BarRatingModule } from 'ngx-bar-rating';
+//import { StarRatingModule } from 'ionic5-star-rating';
+//import { BarRatingModule } from 'ngx-bar-rating';
 //import { IonicRatingModule } from 'ionic-rating-component/public-api';
+import { HttpClientModule } from '@angular/common/http';
 
 import { UserService } from './services/user.service';
 
@@ -26,9 +27,10 @@ import { UserService } from './services/user.service';
   imports: [
     BrowserModule,
     IonicModule,
-    BarRatingModule,
+    //BarRatingModule,
     FormsModule,
-    StarRatingModule,
+    HttpClientModule,
+    //StarRatingModule,
     //IonicRatingModule,
     IonicModule.forRoot(),
     AppRoutingModule
@@ -38,7 +40,7 @@ import { UserService } from './services/user.service';
     Geolocation,
     NativeGeocoder,
     UserService,
-    BarRatingModule,
+    //BarRatingModule,
     // StarRatingModule,
     // SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

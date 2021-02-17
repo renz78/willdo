@@ -95,8 +95,10 @@ const routes: Routes = [
         path: 'myrating',
         loadChildren: () => import('../pages/isppages/myrating/myrating.module').then( m => m.MyratingPageModule)
       },
-    
-    
+      {
+        path: 'categoryzak',
+        loadChildren: () => import('../pages/zakpages/categoryzak/categoryzak.module').then( m => m.CategoryzakPageModule)
+      },
       {
         path: '',
         redirectTo: '/tabs/tab1',

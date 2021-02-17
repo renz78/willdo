@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ProfileispPageRoutingModule } from './profileisp-routing.module';
 import { ProfileispPage } from './profileisp.page';
-import { BarRatingModule } from 'ngx-bar-rating';
+//import { BarRatingModule } from 'ngx-bar-rating';
 import { ExploreContainerComponentModule } from '../../../explore-container/explore-container.module';
 import { ComponentsModule } from '../../../comp/components.module';
 
@@ -14,7 +14,7 @@ import { ComponentsModule } from '../../../comp/components.module';
     FormsModule,
     IonicModule,
     ExploreContainerComponentModule,
-    BarRatingModule,
+    //BarRatingModule,
     ComponentsModule,
     ProfileispPageRoutingModule
   ],
