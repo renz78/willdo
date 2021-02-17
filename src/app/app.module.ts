@@ -17,6 +17,7 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 //import { StarRatingModule } from 'ionic5-star-rating';
 //import { BarRatingModule } from 'ngx-bar-rating';
 //import { IonicRatingModule } from 'ionic-rating-component/public-api';
+import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
 import { UserService } from './services/user.service';
@@ -28,6 +29,7 @@ import { UserService } from './services/user.service';
     BrowserModule,
     IonicModule,
     //BarRatingModule,
+    IonicStorageModule.forRoot(),
     FormsModule,
     HttpClientModule,
     //StarRatingModule,

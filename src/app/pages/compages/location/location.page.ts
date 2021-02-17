@@ -51,6 +51,7 @@ export class LocationPage {
 
   constructor(private geolocation: Geolocation, private navCtrl: NavController, public alertController: AlertController) {}
   
+  //alert window
   async presentAlert() {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
@@ -63,26 +64,26 @@ export class LocationPage {
     await alert.present();
   }
 
-  ngOnInit() {
-    this.getGeolocation();
-    console.log(555);
-  }
-  ionViewWillEnter() {
-    this.getGeolocation();
-    console.log(111);
-  }
-  ionViewDidEnter() {
-    this.getGeolocation();
-    console.log(222);
-  }
-  ionViewWillLeave() {
-    this.getGeolocation();
-    console.log(333);
-  }
-  ionViewDidLeave() {
-    this.getGeolocation();
-    console.log(444);
-  }
+  // ngOnInit() {
+  //   this.getGeolocation();
+  //   console.log(555);
+  // }
+  // ionViewWillEnter() {
+  //   this.getGeolocation();
+  //   console.log(111);
+  // }
+  // ionViewDidEnter() {
+  //   this.getGeolocation();
+  //   console.log(222);
+  // }
+  // ionViewWillLeave() {
+  //   this.getGeolocation();
+  //   console.log(333);
+  // }
+  // ionViewDidLeave() {
+  //   this.getGeolocation();
+  //   console.log(444);
+  // }
   addMarkersToMap(markers) {
     for (let marker of markers) {
       let position = new google.maps.LatLng(marker.latitude, marker.longitude);

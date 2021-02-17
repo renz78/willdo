@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -8,8 +9,14 @@ const routes: Routes = [
   },
   {
     path: 'splash',
-    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule),
+    canActivate: [AuthGuard]
   },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/compages/login/login.module').then( m => m.LoginPageModule)
+  },
+
   
   
 ];
