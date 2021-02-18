@@ -64,12 +64,13 @@ export class AuthService {
   }
 
   getUser() {
+    console.log(this.userData.getValue());
     return this.userData.getValue();
   }
 
   logout() {
     this.storage.remove(TOKEN_KEY).then(() => {
-      this.router.navigateByUrl('/');
+      //this.router.navigateByUrl('/first');
       this.userData.next(null);
     });
   }

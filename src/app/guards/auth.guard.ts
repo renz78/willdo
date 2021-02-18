@@ -16,13 +16,13 @@ export class AuthGuard implements CanActivate{
       take(1),
       map(user => {
         if (!user) {
-          this.alertCtrl.create({
-            header: 'Unauthorized',
-            message: 'You are not allowed to access that page.',
-            buttons: ['OK']
-          }).then(alert => alert.present());
+          // this.alertCtrl.create({
+          //   header: 'Unauthorized',
+          //   message: 'You are not allowed to access that page.',
+          //   buttons: ['OK']
+          // }).then(alert => alert.present());
 
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/tabs/login');
           return false;
         } else {
           return true;

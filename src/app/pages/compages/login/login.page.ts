@@ -13,6 +13,7 @@ export class LoginPage implements OnInit {
     email: 'saimon@devdactic.com',
     pw: '123'
   };
+  pagename: any = 'Авторизация';
 
   constructor(
     private auth: AuthService,
@@ -20,12 +21,14 @@ export class LoginPage implements OnInit {
     private alertCtrl: AlertController
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    //this.logout();
+  }
 
   login() {
     this.auth.login(this.credentials).subscribe(async res => {
       if (res) {
-        this.router.navigateByUrl('/members');
+        this.router.navigateByUrl('/tabs/categoryzak');
       } else {
         const alert = await this.alertCtrl.create({
           header: 'Login Failed',
@@ -36,5 +39,7 @@ export class LoginPage implements OnInit {
       }
     });
   }
- 
+  logout() {
+    this.auth.logout();
+  }
 }

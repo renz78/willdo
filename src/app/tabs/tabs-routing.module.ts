@@ -9,6 +9,14 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'first',
+        loadChildren: () => import('../pages/compages/first/first.module').then( m => m.FirstPageModule)
+      },
+      {
+        path: 'second',
+        loadChildren: () => import('../pages/compages/second/second.module').then( m => m.SecondPageModule)
+      },
+      {
         path: 'tab1',
         loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule),
         canActivate: [AuthGuard]
@@ -26,7 +34,6 @@ const routes: Routes = [
       {
         path: 'settings',
         loadChildren: () => import('../pages/compages/settings/settings.module').then(m => m.SettingsPageModule),
-        canActivate: [AuthGuard]
       },
       {
         path: 'map',
@@ -38,16 +45,7 @@ const routes: Routes = [
         loadChildren: () => import('../pages/compages/chat/chat.module').then(m => m.ChatPageModule),
         canActivate: [AuthGuard]
       },
-      {
-        path: 'first',
-        loadChildren: () => import('../pages/compages/first/first.module').then( m => m.FirstPageModule),
-        canActivate: [AuthGuard]
-      },
-      {
-        path: 'second',
-        loadChildren: () => import('../pages/compages/second/second.module').then( m => m.SecondPageModule),
-        canActivate: [AuthGuard]
-      },
+      
       {
         path: 'location',
         loadChildren: () => import('../pages/compages/location/location.module').then( m => m.LocationPageModule),
