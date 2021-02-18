@@ -6,17 +6,17 @@
       </ion-toolbar>
     </ion-header>
     <ion-content >
-      <ion-list>
-        <ion-menu-toggle>
-          <ion-item lines="none" routerLink="/tabs/login" button>
-            <ion-icon name="enter-outline" slot="start"></ion-icon>
-            <ion-label>Вход</ion-label>
+      <ion-list >
+        <ion-menu-toggle *ngFor="let menuitem of curentmenu">
+          <ion-item lines="none" routerLink="{{menuitem.link}}">
+            <ion-icon name="{{menuitem.icon}}" slot="start"></ion-icon>
+            <ion-label>{{menuitem.name}}</ion-label>
           </ion-item>  
         </ion-menu-toggle>
-        <ion-menu-toggle>
+        <!-- <ion-menu-toggle>
           <ion-item lines="none" routerLink="/tabs/regisp" button>
             <ion-icon name="create-outline" slot="start"></ion-icon>
-            <ion-label>Регистрация{{qweer}}</ion-label>
+            <ion-label>Регистрация</ion-label>
           </ion-item>  
         </ion-menu-toggle>
         <ion-menu-toggle>
@@ -54,7 +54,7 @@
             <ion-icon name="cart-outline" slot="start"></ion-icon>
             <ion-label>Мои заказы</ion-label>
           </ion-item>
-        </ion-menu-toggle>
+        </ion-menu-toggle> -->
         
         
       </ion-list>

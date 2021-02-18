@@ -31,11 +31,8 @@ export class LoginPage implements OnInit {
 
   login() {
     this.auth.login(this.credentials).subscribe(async res => {
-      console.log(res);
       if (res) {
-          this.auth.publishSomeData({
-            foo: 'bar'
-        });
+          
         this.router.navigateByUrl('/tabs/categoryzak');
       } else {
         const alert = await this.alertCtrl.create({

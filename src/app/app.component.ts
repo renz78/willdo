@@ -11,6 +11,49 @@ import { Router } from '@angular/router';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  curentmenu: [] = [];
+
+  noauthmenu: any = [
+    {
+      name: 'Вход',
+      icon: 'enter-outline',
+      link: '/tabs/login'
+    },
+    {
+      name: 'Регистрация',
+      icon: 'create-outline',
+      link: '/tabs/second'
+    },
+    {
+      name: 'Языки',
+      icon: 'globe-outline',
+      link: '/tabs/langs'
+    },
+  ];
+
+  zakhmenu: any = [
+    {
+      name: 'Языки',
+      icon: 'globe-outline',
+      link: '/tabs/langs'
+    },
+    {
+      name: 'Выход',
+      icon: 'enter-outline',
+      link: '/tabs/login'
+    },
+  ];
+
+  isphmenu: any = [
+    {
+      name: 'Языки',
+      icon: 'globe-outline',
+      link: '/tabs/langs'
+    },
+  ];
+
+
   constructor(
     private platform: Platform,
     // private splashScreen: SplashScreen,
@@ -27,10 +70,19 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.router.navigateByUrl('splash');
       // this.splashScreen.hide();
+
+      this.curentmenu = this.noauthmenu;
       this.auth.getObservable().subscribe((data) => {
-        this.qweer = 'ddd';
-        console.log('Data received', data);
-    });
+        if (data.role == 0) {
+          this.curentmenu = this.zakhmenu;  
+        } else if (data.role == 1) {
+          this.curentmenu = this.isphmenu;
+        } else {
+          this.curentmenu = this.noauthmenu;
+        }
+        
+        console.log('Data received', data.role);
+      });
     });
   }
 
