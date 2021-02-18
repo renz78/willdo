@@ -4,7 +4,6 @@ import { Platform } from '@ionic/angular';
 // import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
-import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-root',
@@ -27,12 +26,11 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.router.navigateByUrl('splash');
-      if (this.auth.user) {
-        console.log(this.auth.user);
-      } else {
-        console.log(0);
-      }
       // this.splashScreen.hide();
+      this.auth.getObservable().subscribe((data) => {
+        this.qweer = 'ddd';
+        console.log('Data received', data);
+    });
     });
   }
 

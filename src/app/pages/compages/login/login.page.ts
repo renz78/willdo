@@ -13,6 +13,10 @@ export class LoginPage implements OnInit {
     email: 'saimon@devdactic.com',
     pw: '123'
   };
+  user = {
+    name: 'admin',
+    pw: 'admin'
+  };
   pagename: any = 'Авторизация';
 
   constructor(
@@ -27,7 +31,11 @@ export class LoginPage implements OnInit {
 
   login() {
     this.auth.login(this.credentials).subscribe(async res => {
+      console.log(res);
       if (res) {
+          this.auth.publishSomeData({
+            foo: 'bar'
+        });
         this.router.navigateByUrl('/tabs/categoryzak');
       } else {
         const alert = await this.alertCtrl.create({
@@ -41,5 +49,15 @@ export class LoginPage implements OnInit {
   }
   logout() {
     this.auth.logout();
+  }
+
+  loginUser() {
+    this.auth.login3(this.user.name, this.user.pw).then(success => {
+      if (success) {
+        this.router.navigateByUrl('/tabs/settings');
+      }
+    }).catch(err => {
+      console.log(err);
+    });
   }
 }

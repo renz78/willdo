@@ -21,6 +21,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
 import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
+import { ComponentsModule } from './comp/components.module';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +35,7 @@ import { UserService } from './services/user.service';
     IonicStorageModule.forRoot(),
     FormsModule,
     HttpClientModule,
+    ComponentsModule,
     //StarRatingModule,
     //IonicRatingModule,
     IonicModule.forRoot(),
@@ -42,6 +46,7 @@ import { UserService } from './services/user.service';
     Geolocation,
     NativeGeocoder,
     UserService,
+    AuthService,
     //BarRatingModule,
     // StarRatingModule,
     // SplashScreen,
