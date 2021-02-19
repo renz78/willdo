@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable, from, of, Subject } from 'rxjs';
 import { take, map, switchMap, tap } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
+import { HTTP } from '@ionic-native/http/ngx';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
 import { AuthResponse } from '../interfaces/auth-response';
@@ -31,10 +32,38 @@ export class AuthService {
   public curentUser: User;
   //AUTH_SERVER_ADDRESS: string = 'http://localhost:3000';
 
-  constructor(private storage: Storage, private http: HttpClient, private plt: Platform, private router: Router) {
+  constructor(private storage: Storage, private http: HttpClient, private http2: HTTP, private plt: Platform, private router: Router) {
     this.loadStoredToken();
   }
 
+  setValue(){
+    this.storage.set('name', 'ironman');
+  }
+
+  getValue(){
+    this.storage.get('name').then( (val) => {
+      console.log(val);
+    })
+  }
+  public set(settingName,value){
+    console.log(123);
+    return this.storage.set(`setting:${ settingName }`,value);
+  }
+  public async get(settingName){
+    console.log(123);
+
+    return await this.storage.get(`setting:${ settingName }`).then( (val) => {
+      console.log(val);
+    })
+  }
+  public async remove(settingName){
+    return await this.storage.remove(`setting:${ settingName }`);
+  }
+  public clear() {
+    this.storage.clear().then(() => {
+      console.log('all keys cleared');
+    });
+  }
   publishSomeData(data: any) {
     this.fooSubject.next(data);
   }
@@ -128,10 +157,50 @@ export class AuthService {
   // }
   login(credentials: {email: string, pw: string }) {
     // Normally make a POST request to your APi with your login credentials
-    if (credentials.email !== 'saimon@devdactic.com' || credentials.pw !== '123') {
-      return of(null);
+    // if (credentials.email !== 'saimon@devdactic.com' || credentials.pw !== '123') {
+    //   return of(null);
+    // }
+    // return this.http.post('https://willdo.com.ua/p/api/model/k2users/event/getauth/', credentials).pipe(
+    //   tap(res => {
+    //     console.log(res)
+    //     return res;
+    //   }),
+    // );
+    this.http2.sendRequest('https://google.com/',
+    {
+      method: 'post',
+      data: { id: 12, message: 'test' },
+      headers: { Authorization: 'OAuth2: token' },
+      timeout: 5000
     }
+  )
+    .then(response => {
+      // prints 200
+      console.log(response.status);
+    })
+    .catch(response => {
+      // prints 403
+      console.log(response.status);
 
+      // prints Permission denied
+      console.log(response.error);
+    });
+  //   this.http2.post('https://willdo.com.ua/p/api/model/k2users/event/getauth/', {credentials}, {})
+  // .then(data => {
+
+  //   console.log(data.status);
+  //   console.log(data.data); // data received by server
+  //   console.log(data.headers);
+
+  // })
+  // .catch(error => {
+
+  //   console.log(error.status);
+  //   console.log(error.error); // error message as string
+  //   console.log(error.headers);
+
+  // });
+    //получаем данные пользователя 
     this.curentUser = {
       name: 'admin',
       id: '12',

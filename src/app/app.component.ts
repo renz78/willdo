@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 // import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-root',
@@ -39,6 +40,11 @@ export class AppComponent {
       link: '/tabs/langs'
     },
     {
+      name: 'Языки',
+      icon: 'globe-outline',
+      link: '/tabs/langs'
+    },
+    {
       name: 'Выход',
       icon: 'enter-outline',
       link: '/tabs/login'
@@ -51,6 +57,11 @@ export class AppComponent {
       icon: 'globe-outline',
       link: '/tabs/langs'
     },
+    {
+      name: 'Выход',
+      icon: 'enter-outline',
+      link: '/tabs/login'
+    },
   ];
 
 
@@ -60,6 +71,7 @@ export class AppComponent {
     private statusBar: StatusBar,
     public router: Router,
     private auth: AuthService,
+    private storage: Storage
   ) {
     this.initializeApp();
   }
@@ -73,16 +85,27 @@ export class AppComponent {
 
       this.curentmenu = this.noauthmenu;
       this.auth.getObservable().subscribe((data) => {
-        if (data.role == 0) {
+        // if (data.role === 0) {
+        //   this.curentmenu = this.zakhmenu;  
+        // } else if (data.role === 1) {
+        //   this.curentmenu = this.isphmenu;
+        // } else {
+        //   this.curentmenu = this.noauthmenu;
+        // }
+        
+        console.log('Data received', data.role);
+      });
+
+      this.storage.get('role').then( (val) => {
+        console.log(val);
+        if (val === 0) {
           this.curentmenu = this.zakhmenu;  
-        } else if (data.role == 1) {
+        } else if (val === 1) {
           this.curentmenu = this.isphmenu;
         } else {
           this.curentmenu = this.noauthmenu;
         }
-        
-        console.log('Data received', data.role);
-      });
+      })
     });
   }
 

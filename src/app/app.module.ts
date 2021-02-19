@@ -20,9 +20,11 @@ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
 import { ComponentsModule } from './comp/components.module';
+import { HTTP } from '@ionic-native/http/ngx';
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { ComponentsModule } from './comp/components.module';
     NativeGeocoder,
     UserService,
     AuthService,
+    HTTP,
     //BarRatingModule,
     // StarRatingModule,
     // SplashScreen,

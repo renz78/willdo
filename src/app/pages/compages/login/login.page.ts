@@ -28,12 +28,21 @@ export class LoginPage implements OnInit {
   ngOnInit() {
     //this.logout();
   }
-
+  public set(settingName,value){
+    return this.auth.set('setting:${ settingName }',value);
+  }
+  public get(settingName){
+    return this.auth.get('setting:${ settingName }');
+  }
+  public remove(settingName){
+    return this.auth.remove('setting:${ settingName }');
+  }
+  
   login() {
     this.auth.login(this.credentials).subscribe(async res => {
       if (res) {
           
-        this.router.navigateByUrl('/tabs/categoryzak');
+        //this.router.navigateByUrl('/tabs/categoryzak');
       } else {
         const alert = await this.alertCtrl.create({
           header: 'Login Failed',
