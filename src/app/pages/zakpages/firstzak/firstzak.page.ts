@@ -13,6 +13,6 @@ export class FirstzakPage implements OnInit {
   ngOnInit() {
   }
   gotoRegZakPage(): void{
-    this.navCtrl.navigateForward('tabs/regisp');
+    this.navCtrl.navigateForward('tabs/regzak');
   }
 }

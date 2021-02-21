@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-login',
@@ -10,23 +11,33 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   credentials = {
-    email: 'saimon@devdactic.com',
-    pw: '123'
+    email: 'tus2006@ukr.net',
+    pw: '123456'
   };
   user = {
     name: 'admin',
     pw: 'admin'
   };
+  
+  authinfo = {
+    auth: '0',
+    role: '0'
+  };
+
   pagename: any = 'Авторизация';
 
   constructor(
     private auth: AuthService,
     private router: Router,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private storage: Storage
   ) {}
 
   ngOnInit() {
-    //this.logout();
+    
+  }
+  ionViewWillEnter() {
+    this.logout();
   }
   public set(settingName,value){
     return this.auth.set('setting:${ settingName }',value);
@@ -41,8 +52,17 @@ export class LoginPage implements OnInit {
   login() {
     this.auth.login(this.credentials).subscribe(async res => {
       if (res) {
-          
-        //this.router.navigateByUrl('/tabs/categoryzak');
+        this.authinfo = {
+          auth: res.auth,
+          role: res.role
+        }
+        this.auth.publishSomeData({
+          auth: this.authinfo.auth,
+          role: this.authinfo.role
+        });
+        
+          console.log(res);
+        this.router.navigateByUrl('/tabs/profileisp');
       } else {
         const alert = await this.alertCtrl.create({
           header: 'Login Failed',
@@ -54,6 +74,14 @@ export class LoginPage implements OnInit {
     });
   }
   logout() {
+    this.authinfo = {
+      auth: null,
+      role: null
+    }
+    this.auth.publishSomeData({
+      auth: this.authinfo.auth,
+      role: this.authinfo.role
+    });
     this.auth.logout();
   }
 

@@ -1,15 +1,71 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button menu="m1"></ion-menu-button>
-    </ion-buttons>
-    <ion-buttons slot="end" routerLink="/tabs/share">
-        <i class="fa fa-share-alt wdobtn" style="font-size:22px;"></i>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-backbtn>{{pagename}}</app-backbtn>
 
+<ion-content fullscreen>
+  <ion-grid class="">   
+    <form (ngSubmit)="regForm()">
+      <ion-row class="">
+        <ion-col size="10" offset="1">
+          <ion-input type="text" required placeholder="ФИО" [(ngModel)]="reg.fio" name="fio"></ion-input>
+          <ion-input type="text" required placeholder="Ваш Email" [(ngModel)]="reg.email" name="email"></ion-input>
+          <ion-input type="text" required placeholder="Ваш контактный телефон" [(ngModel)]="reg.phone" name="phone"></ion-input>
+          <ion-input type="text" required placeholder="Страна, город, улица, дом" [(ngModel)]="reg.address" name="address"></ion-input>
+        </ion-col>
+      
+        <ion-col size="4" offset="1" >
+          <span class="">Тип аккаунта</span>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select interface="popover"  [(ngModel)]="reg.role" name="role">
+            <ion-select-option value="isp" [selected]="i===0">Исполнитель</ion-select-option>
+            <ion-select-option value="zak">Заказчик</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col size="4" offset="1" >
+          <span class="ion-padding-top">Выбор языка</span>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select interface="popover" [(ngModel)]="reg.lang" name="lang">
+            <ion-select-option value="ukr">Украинский</ion-select-option>
+            <ion-select-option value="eng">Английский</ion-select-option>
+            <ion-select-option value="rus" selected>Русский</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col size="4" offset="1" >
+          <span class="ion-padding-top">Оплата</span>
+        </ion-col>
+        <ion-col size="6">
+          <ion-select interface="popover" [(ngModel)]="reg.money" name="cash">
+            <ion-select-option value="cash" selected >Наличные</ion-select-option>
+            <ion-select-option value="card" >Банковская карта</ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col size="10" offset="1">
+          <ion-input type="password" required placeholder="Пароль" [(ngModel)]="reg.password" name="password"></ion-input>
+          <ion-input type="password" required placeholder="Повторите пароль" [(ngModel)]="reg.password2" name="password2"></ion-input>
+        </ion-col>
+      </ion-row>
+      <ion-row >
+          <ion-col size="6">
+            <div class="ion-text-center">
+              <ion-icon name="add-circle-outline" class="regicon"></ion-icon><br>
+              Загрузить фото
+            </div>
+          </ion-col>
+          <ion-col size="6">
+            <div class="ion-text-center"> 
+            <ion-icon name="camera-outline" class="regicon"></ion-icon>
+              Сфотографироваться
+            </div> 
+          </ion-col>
+        </ion-row>
 
-<ion-content>
-test
+      <ion-row class="ion-align-self-center">
+        <ion-col class="">
+          <div class="ion-text-center" >    
+            <ion-button class="primary" type="submit" style="width:70%" shape="round" >Зарегистрироваться</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>   
 </ion-content>

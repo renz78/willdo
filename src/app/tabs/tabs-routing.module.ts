@@ -18,18 +18,17 @@ const routes: Routes = [
       },
       {
         path: 'tab1',
-        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule),
-        canActivate: [AuthGuard]
+        loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
       },
       {
         path: 'tab2',
         loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'tab3',
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'settings',
@@ -38,88 +37,88 @@ const routes: Routes = [
       {
         path: 'map',
         loadChildren: () => import('../test/map/map.module').then(m => m.MapPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'chat',
         loadChildren: () => import('../pages/compages/chat/chat.module').then(m => m.ChatPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       
       {
         path: 'location',
         loadChildren: () => import('../pages/compages/location/location.module').then( m => m.LocationPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'regzak',
         loadChildren: () => import('../pages/zakpages/regzak/regzak.module').then( m => m.RegzakPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'regisp',
         loadChildren: () => import('../pages/isppages/regisp/regisp.module').then( m => m.RegispPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'firstzak',
         loadChildren: () => import('../pages/zakpages/firstzak/firstzak.module').then( m => m.FirstzakPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'firstisp',
         loadChildren: () => import('../pages/isppages/firstisp/firstisp.module').then( m => m.FirstispPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'share',
         loadChildren: () => import('../pages/compages/share/share.module').then( m => m.SharePageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'profileisp',
         loadChildren: () => import('../pages/isppages/profileisp/profileisp.module').then( m => m.ProfileispPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'profilezak',
         loadChildren: () => import('../pages/zakpages/profilezak/profilezak.module').then( m => m.ProfilezakPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'langs',
         loadChildren: () => import('../pages/compages/langs/langs.module').then( m => m.LangsPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'walletisp',
         loadChildren: () => import('../pages/isppages/walletisp/walletisp.module').then( m => m.WalletispPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'walletzak',
         loadChildren: () => import('../pages/zakpages/walletzak/walletzak.module').then( m => m.WalletzakPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'chooseworker',
         loadChildren: () => import('../pages/compages/chooseworker/chooseworker.module').then( m => m.ChooseworkerPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'chooseworker-detail',
         loadChildren: () => import('../pages/compages/chooseworker-detail/chooseworker-detail.module').then( m => m.ChooseworkerDetailPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'myrating',
         loadChildren: () => import('../pages/isppages/myrating/myrating.module').then( m => m.MyratingPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'categoryzak',
         loadChildren: () => import('../pages/zakpages/categoryzak/categoryzak.module').then( m => m.CategoryzakPageModule),
-        canActivate: [AuthGuard]
+        //canActivate: [AuthGuard]
       },
       {
         path: 'login',

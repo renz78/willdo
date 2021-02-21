@@ -35,9 +35,24 @@ export class AppComponent {
 
   zakhmenu: any = [
     {
-      name: 'Языки',
-      icon: 'globe-outline',
-      link: '/tabs/langs'
+      name: 'Мой профиль',
+      icon: 'person-circle-outline',
+      link: '/tabs/profileisp'
+    },
+    {
+      name: 'Кошелек',
+      icon: 'wallet-outline',
+      link: '/tabs/walletisp'
+    },
+    {
+      name: 'Мой рейтинг',
+      icon: 'star',
+      link: '/tabs/myrating'
+    },
+    {
+      name: 'Мои заказы',
+      icon: 'cart-outline',
+      link: '/tabs/profileisp'
     },
     {
       name: 'Языки',
@@ -52,6 +67,26 @@ export class AppComponent {
   ];
 
   isphmenu: any = [
+    {
+      name: 'Мой профиль',
+      icon: 'person-circle-outline',
+      link: '/tabs/profileisp'
+    },
+    {
+      name: 'Кошелек',
+      icon: 'wallet-outline',
+      link: '/tabs/walletisp'
+    },
+    {
+      name: 'Мой рейтинг',
+      icon: 'star',
+      link: '/tabs/myrating'
+    },
+    {
+      name: 'Мои заказы',
+      icon: 'cart-outline',
+      link: '/tabs/profileisp'
+    },
     {
       name: 'Языки',
       icon: 'globe-outline',
@@ -85,26 +120,30 @@ export class AppComponent {
 
       this.curentmenu = this.noauthmenu;
       this.auth.getObservable().subscribe((data) => {
-        // if (data.role === 0) {
-        //   this.curentmenu = this.zakhmenu;  
-        // } else if (data.role === 1) {
-        //   this.curentmenu = this.isphmenu;
-        // } else {
-        //   this.curentmenu = this.noauthmenu;
-        // }
-        
-        console.log('Data received', data.role);
-      });
-
-      this.storage.get('role').then( (val) => {
-        console.log(val);
-        if (val === 0) {
+        if (data.role === 'cb0548d236e28b0c5e656df100613507') {
           this.curentmenu = this.zakhmenu;  
-        } else if (val === 1) {
+        } else if (data.role === '3152a0b2e5dde07001780e616909d468') {
           this.curentmenu = this.isphmenu;
         } else {
           this.curentmenu = this.noauthmenu;
         }
+        
+        console.log('Data received', data.role);
+      });
+
+      this.storage.get('authinfo').then( (val) => {
+        
+        if(val){
+          console.log(val.role);
+          if (val.role === 'cb0548d236e28b0c5e656df100613507') {
+            this.curentmenu = this.zakhmenu;  
+          } else if (val.role === '3152a0b2e5dde07001780e616909d468') {
+            this.curentmenu = this.isphmenu;
+          } else {
+            this.curentmenu = this.noauthmenu;
+          }
+        }
+        
       })
     });
   }
