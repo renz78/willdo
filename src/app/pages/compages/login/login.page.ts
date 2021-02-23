@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { BehaviorSubject, Observable, from, of, Subject } from 'rxjs';
 //import { Observable } from 'rxjs/Observable';
 import { finalize } from 'rxjs/operators';
-import { LoadingController, Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',

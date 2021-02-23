@@ -15,16 +15,16 @@
           <span class="">Тип аккаунта</span>
         </ion-col>
         <ion-col size="6">
-          <ion-select interface="popover"  [(ngModel)]="reg.role" name="role">
-            <ion-select-option value="isp" [selected]="i===0">Исполнитель</ion-select-option>
-            <ion-select-option value="zak">Заказчик</ion-select-option>
+          <ion-select interface="popover" [(ngModel)]="reg.roleid" name="roleid">
+            <ion-select-option value="3152a0b2e5dde07001780e616909d468">Исполнитель</ion-select-option>
+            <ion-select-option value="cb0548d236e28b0c5e656df100613507">Заказчик</ion-select-option>
           </ion-select>
         </ion-col>
         <ion-col size="4" offset="1" >
           <span class="ion-padding-top">Выбор языка</span>
         </ion-col>
         <ion-col size="6">
-          <ion-select interface="popover" [(ngModel)]="reg.lang" name="lang">
+          <ion-select interface="popover" [(ngModel)]="reg.langid" name="langid">
             <ion-select-option value="ukr">Украинский</ion-select-option>
             <ion-select-option value="eng">Английский</ion-select-option>
             <ion-select-option value="rus" selected>Русский</ion-select-option>
@@ -45,22 +45,22 @@
         </ion-col>
       </ion-row>
       <ion-row >
-          <ion-col size="6">
+          <ion-col size="12">
             <div class="ion-text-center">
-              <ion-button (click)='captureImage()'>
+              <ion-button (click)='takePicture()'>
                 <ion-icon name="add-circle-outline" class="regicon"></ion-icon>
               </ion-button><br>
               Загрузить фото
             </div>
           </ion-col>
-          <ion-col size="6">
+          <!--<ion-col size="6">
             <div class="ion-text-center"> 
               <ion-button (click)='captureImage()'>
                 <ion-icon name="camera-outline" class="regicon"></ion-icon>
               </ion-button> <br> 
               Сфотографироваться
             </div> 
-          </ion-col>
+          </ion-col>-->
         </ion-row>
         <ion-row class="ion-align-self-center">
           <ion-col class="">

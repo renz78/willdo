@@ -37,10 +37,10 @@ export class AuthService {
   //AUTH_SERVER_ADDRESS: string = 'http://localhost:3000';
 
   constructor(
-    private storage: Storage, 
-    private http: HttpClient, 
-    private http2: HTTP, 
-    private plt: Platform, 
+    private storage: Storage,
+    private http: HttpClient,
+    private http2: HTTP,
+    private plt: Platform,
     private router: Router,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController
@@ -207,15 +207,16 @@ export class AuthService {
 
 
   regForm(regdata) {
-   
-
     return this.http.post('https://willdo.com.ua/p/api/model/k2users/event/reg/', regdata).pipe(
       tap(res => {
-        console.log(res);
-        
         return res;
       }),
     );
   }
- 
+
+  async regFormNative(regdata){
+    return this.http2.post('https://willdo.com.ua/p/api/model/k2users/event/reg', regdata, {
+      'Content-Type': 'aplication/json'
+    })
+  }
 }

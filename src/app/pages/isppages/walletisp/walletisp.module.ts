@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { WalletispPageRoutingModule } from './walletisp-routing.module';
 import { WalletispPage } from './walletisp.page';
 import { ExploreContainerComponentModule } from '../../../explore-container/explore-container.module';
+import { ComponentsModule } from '../../../comp/components.module';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { ExploreContainerComponentModule } from '../../../explore-container/expl
     CommonModule,
     FormsModule,
     IonicModule,
+    ComponentsModule,
     ExploreContainerComponentModule,
     WalletispPageRoutingModule
   ],

@@ -7,7 +7,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./walletisp.page.scss'],
 })
 export class WalletispPage implements OnInit {
-
+  pagename: string = ' Мой кошелек';
   constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
