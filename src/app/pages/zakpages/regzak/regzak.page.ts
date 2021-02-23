@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Plugins, CameraResultType, CameraSource} from '@capacitor/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { isPlatform } from '@ionic/angular';
 import { AuthService } from '../../../services/auth.service';
 import { AlertController } from '@ionic/angular';
+
+const { Camera } = Plugins;
 
 @Component({
   selector: 'app-regzak',
@@ -9,12 +14,26 @@ import { AlertController } from '@ionic/angular';
 })
 export class RegzakPage implements OnInit {
   pagename: any = ' Регистрация заказчика';
+  image: SafeResourceUrl;
   constructor(
     private auth: AuthService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit() {
+  }
+
+  async captureImage() {
+    const image = await Camera.getPhoto({
+      quality: 90,
+      allowEditing: true,
+      resultType: CameraResultType.DataUrl,
+      source: CameraSource.Camera
+    })
+    console.log(image);
+    //this.image = this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg; base64,${image.base64String}');
+    this.image = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
   }
 
   reg: any = {};

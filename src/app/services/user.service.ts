@@ -1,17 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-//import { HTTP } from '@ionic-native/http/ngx';
+import { HTTP } from '@ionic-native/http/ngx';
+import { BehaviorSubject, Observable, from, of, Subject } from 'rxjs';
+import { LoadingController, Platform } from '@ionic/angular';
+import { finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   user: any;
+  data = [];
+  nativeCall: any;
   //category: any;
-  constructor(public http: HttpClient) { }
-
+  constructor(
+    public http: HttpClient, 
+    private http2: HTTP,
+    private plt: Platform, 
+    private loadingCtrl: LoadingController
+    ) { }
+  
   getCategory() {
-    return this.http.get('https://willdo.com.ua/p/api/model/k2shop_category');
+      return this.http.get('https://willdo.com.ua/p/api/model/k2shop_category');
+  }  
+
+  async getCategoryNative() {
+    return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/k2shop_category', {}, {
+      'Content-Type': 'aplication/json'
+    })
   }
 
   func(){

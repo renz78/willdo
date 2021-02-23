@@ -1,4 +1,4 @@
-import { Platform } from '@ionic/angular';
+import { LoadingController, Platform } from '@ionic/angular';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { BehaviorSubject, Observable, from, of, Subject } from 'rxjs';
@@ -8,7 +8,10 @@ import { HttpClient } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
+import { AlertController } from '@ionic/angular';
 import { AuthResponse } from '../interfaces/auth-response';
+import { finalize } from 'rxjs/operators';
+
 
 const helper = new JwtHelperService();
 const TOKEN_KEY = 'jwt-token';
@@ -25,14 +28,23 @@ const TOKEN_KEY = 'jwt-token';
   providedIn: 'root'
 })
 export class AuthService {
-
+  data = [];
   public user: Observable<any>;
   private userData = new BehaviorSubject(null);
   private fooSubject = new Subject<any>();
   public curentUser: User;
+  public nativeCall: any;
   //AUTH_SERVER_ADDRESS: string = 'http://localhost:3000';
 
-  constructor(private storage: Storage, private http: HttpClient, private http2: HTTP, private plt: Platform, private router: Router) {
+  constructor(
+    private storage: Storage, 
+    private http: HttpClient, 
+    private http2: HTTP, 
+    private plt: Platform, 
+    private router: Router,
+    private alertCtrl: AlertController,
+    private loadingCtrl: LoadingController
+    ) {
     this.loadStoredToken();
   }
 
@@ -73,34 +85,6 @@ export class AuthService {
   }
 
 
-  login3(name: string, pw: string) : Promise<boolean> {
-    return new Promise((resolve, reject) => {
-      if (name === 'admin' && pw === 'admin'){
-        this.curentUser = {
-          name: name,
-          id: '12',
-          email: '',
-          password: '',
-          role: 0
-        };
-        
-        resolve (true);
-      } else if (name === 'user' && pw === 'user') {
-        this.curentUser = {
-          name: name,
-          id: '12',
-          email: '',
-          password: '',
-          role: 1
-        };
-        resolve (true);
-      } else {
-        console.log(444);
-        reject (false);
-      }
-    })
-  }
-
   isLoggedIn(){
     return this.curentUser != null;
   }
@@ -108,20 +92,6 @@ export class AuthService {
   isAdmin(){
     return this.curentUser.role;
   }
-
-  // register(user: User): Observable<AuthResponse> {
-  //   return this.http.post<AuthResponse>(`${this.AUTH_SERVER_ADDRESS}/register`, user).pipe(
-  //     tap(async (res: AuthResponse ) => {
-
-  //       if (res.user) {
-  //         await this.storage.set("ACCESS_TOKEN", res.user.access_token);
-  //         await this.storage.set("EXPIRES_IN", res.user.expires_in);
-  //         this.userData.next(true);
-  //       }
-  //     })
-
-  //   );
-  // }
 
   loadStoredToken() {
     let platformObs = from(this.plt.ready());
@@ -142,20 +112,7 @@ export class AuthService {
       })
     );
   }
-  // login2(user: User): Observable<AuthResponse> {
-  //   //return this.http.get('https://willdo.com.ua/p/api/model/k2users');
-  //   return this.http.post('https://willdo.com.ua/p/api/model/k2users', user).pipe(
-  //     tap(async (res: AuthResponse) => {
-
-  //       if (res.user) {
-  //         await this.storage.set("ACCESS_TOKEN", res.user.access_token);
-  //         await this.storage.set("EXPIRES_IN", res.user.expires_in);
-  //         this.userData.next(true);
-  //       }
-  //     })
-  //   );
-  // }
-
+  
   regToken(){
     
     return this.http.get('https://randomuser.me/api/').pipe(
@@ -178,18 +135,32 @@ export class AuthService {
       
     );
   }
+  getDataEveryWhere(credentials: {email: string, pw: string }){
+    if(this.plt.is('capacitor') || this.plt.is('cordova')){
+      this.getDataNativeHttp(credentials);
+    } else {
+      this.login(credentials);
+    }
 
-  
+  }
+
+  async showAlert(message: string){
+    const alert = await this.alertCtrl.create({
+      header: 'Инфо',
+      message: message,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  async getDataNativeHttp(credentials: {email: string, pw: string }){
+    return this.http2.post('https://willdo.com.ua/p/api/model/k2users/event/getauth', credentials, {
+      'Content-Type': 'aplication/json'
+    })
+  }
 
   login(credentials: {email: string, pw: string }) {
-    // Normally make a POST request to your APi with your login credentials e10adc3949ba59abbe56e057f20f883e
-    // if (credentials.email !== 'saimon@devdactic.com' || credentials.pw !== '123') {
-    //   return of(null);
-    // }
-
-    
-
-    return this.http.post('https://willdo.com.ua/p/api/model/k2users/event/getauth/', credentials).pipe(
+    return this.http.post('https://willdo.com.ua/p/api/model/k2users/event/getauth', credentials).pipe(
       tap(res => {
         console.log(res);
         this.regToken();
@@ -197,48 +168,7 @@ export class AuthService {
         return res;
       }),
     );
-  //   this.http2.sendRequest('https://google.com/',
-  //   {
-  //     method: 'post',
-  //     data: { id: 12, message: 'test' },
-  //     headers: { Authorization: 'OAuth2: token' },
-  //     timeout: 5000
-  //   }
-  // )
-  //   .then(response => {
-  //     // prints 200
-  //     console.log(response.status);
-  //   })
-  //   .catch(response => {
-  //     // prints 403
-  //     console.log(response.status);
-
-  //     // prints Permission denied
-  //     console.log(response.error);
-  //   });
-  //   this.http2.post('https://willdo.com.ua/p/api/model/k2users/event/getauth/', {credentials}, {})
-  // .then(data => {
-
-  //   console.log(data.status);
-  //   console.log(data.data); // data received by server
-  //   console.log(data.headers);
-
-  // })
-  // .catch(error => {
-
-  //   console.log(error.status);
-  //   console.log(error.error); // error message as string
-  //   console.log(error.headers);
-
-  // });
-    //получаем данные пользователя 
     
-    // return this.http.post('https://willdo.com.ua/p/api/model/k2users', credentials).pipe(
-    //   tap(res => {
-    //     console.log(res)
-    //     return `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1Njc2NjU3MDYsImV4cCI6MTU5OTIwMTcwNiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoiMTIzNDUiLCJmaXJzdF9uYW1lIjoiU2ltb24iLCJsYXN0X25hbWUiOiJHcmltbSIsImVtYWlsIjoic2FpbW9uQGRldmRhY3RpYy5jb20ifQ.4LZTaUxsX2oXpWN6nrSScFXeBNZVEyuPxcOkbbDVZ5U`;
-    //   }),
-    // );
     return this.http.get('https://randomuser.me/api/').pipe(
       take(1),
       map(res => {
