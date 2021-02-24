@@ -90,7 +90,7 @@ constructor(
     
     if (check.res === 1) {
       if(this.plt.is('capacitor') || this.plt.is('cordova')){
-        let nativeCall = this.auth.getDataNativeHttp(this.reg);
+        let nativeCall = this.auth.regFormNative(this.reg);
         from(nativeCall).pipe(
 
           ).subscribe(data => {
