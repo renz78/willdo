@@ -212,6 +212,23 @@ export class AuthService {
         return res;
       }),
     );
+    return this.http.get('https://randomuser.me/api/').pipe(
+      take(1),
+      map(res => {
+        // Extract the JWT, here we just fake it
+        return `eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJPbmxpbmUgSldUIEJ1aWxkZXIiLCJpYXQiOjE1Njc2NjU3MDYsImV4cCI6MTU5OTIwMTcwNiwiYXVkIjoid3d3LmV4YW1wbGUuY29tIiwic3ViIjoiMTIzNDUiLCJmaXJzdF9uYW1lIjoiU2ltb24iLCJsYXN0X25hbWUiOiJHcmltbSIsImVtYWlsIjoic2FpbW9uQGRldmRhY3RpYy5jb20ifQ.4LZTaUxsX2oXpWN6nrSScFXeBNZVEyuPxcOkbbDVZ5U`;
+      }),
+      switchMap(token => {
+        let decoded = helper.decodeToken(token);
+        this.userData.next(decoded);
+        //console.log(token);
+        //this.curentUser = 1;
+        let storageObs = from(this.storage.set(TOKEN_KEY, token));
+        console.log(this.storage);
+        return storageObs;
+      })
+      
+    );
   }
 
   async regFormNative(regdata){
