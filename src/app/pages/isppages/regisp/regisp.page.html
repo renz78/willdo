@@ -2,69 +2,76 @@
 
 <ion-content fullscreen>
   <ion-grid class="">   
-    <form (ngSubmit)="logForm()">
+    <form (ngSubmit)="regForm()">
       <ion-row class="">
         <ion-col size="10" offset="1">
-          <ion-input type="text" required placeholder="ФИО"></ion-input>
-          <ion-input type="text" required placeholder="Ваш Email"></ion-input>
-          <ion-input type="text" required placeholder="Ваш контактный телефон"></ion-input>
-          <ion-input type="text" required placeholder="Страна, город, улица, дом"></ion-input>
+          <ion-input type="text" required placeholder="ФИО" [(ngModel)]="reg.fio" name="fio"></ion-input>
+          <ion-input type="text" required placeholder="Ваш Email" [(ngModel)]="reg.email" name="email"></ion-input>
+          <ion-input type="text" required placeholder="Ваш контактный телефон" [(ngModel)]="reg.phone" name="phone"></ion-input>
+          <ion-input type="text" required placeholder="Страна, город, улица, дом" [(ngModel)]="reg.address" name="address"></ion-input>
         </ion-col>
       
         <ion-col size="4" offset="1" >
           <span class="">Тип аккаунта</span>
         </ion-col>
         <ion-col size="6">
-          <ion-select interface="popover">
-            <ion-select-option value="isp">Исполнитель</ion-select-option>
-            <ion-select-option value="zak">Заказчик</ion-select-option>
+          <ion-select interface="popover" [(ngModel)]="reg.roleid" name="roleid">
+            <ion-select-option value="3152a0b2e5dde07001780e616909d468">Исполнитель</ion-select-option>
+            <ion-select-option value="cb0548d236e28b0c5e656df100613507">Заказчик</ion-select-option>
           </ion-select>
         </ion-col>
         <ion-col size="4" offset="1" >
           <span class="ion-padding-top">Выбор языка</span>
         </ion-col>
         <ion-col size="6">
-          <ion-select interface="popover">
+          <ion-select interface="popover" [(ngModel)]="reg.langid" name="langid">
             <ion-select-option value="ukr">Украинский</ion-select-option>
             <ion-select-option value="eng">Английский</ion-select-option>
-            <ion-select-option value="rus">Русский</ion-select-option>
+            <ion-select-option value="rus" selected>Русский</ion-select-option>
           </ion-select>
         </ion-col>
         <ion-col size="4" offset="1" >
           <span class="ion-padding-top">Оплата</span>
         </ion-col>
         <ion-col size="6">
-          <ion-select interface="popover">
-            <ion-select-option value="ukr">Наличные</ion-select-option>
-            <ion-select-option value="eng">Банковская карта</ion-select-option>
+          <ion-select interface="popover" [(ngModel)]="reg.money" name="cash">
+            <ion-select-option value="cash" selected >Наличные</ion-select-option>
+            <ion-select-option value="card" >Банковская карта</ion-select-option>
           </ion-select>
         </ion-col>
         <ion-col size="10" offset="1">
-          <ion-input type="password" required placeholder="Пароль"></ion-input>
-          <ion-input type="password" required placeholder="Повторите пароль"></ion-input>
+          <ion-input type="password" required placeholder="Пароль" [(ngModel)]="reg.password" name="password"></ion-input>
+          <ion-input type="password" required placeholder="Повторите пароль" [(ngModel)]="reg.password2" name="password2"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row >
-          <ion-col size="3">
+          <ion-col size="12">
             <div class="ion-text-center">
-              <ion-icon name="add-circle-outline" class="regicon"></ion-icon>
+              <ion-button (click)='captureImage()'>
+                <ion-icon name="add-circle-outline" class="regicon"></ion-icon>
+              </ion-button><br>
               Загрузить фото
             </div>
+            <!-- <ion-button (click)="upload()" color="success">
+              <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+           </ion-button> -->
           </ion-col>
-          <ion-col size="6">
+          <!--<ion-col size="6">
             <div class="ion-text-center"> 
-            <ion-icon name="camera-outline" class="regicon"></ion-icon>
+              <ion-button (click)='captureImage()'>
+                <ion-icon name="camera-outline" class="regicon"></ion-icon>
+              </ion-button> <br> 
               Сфотографироваться
             </div> 
-          </ion-col>
-          <ion-col size="3">
-            <div class="ion-text-center">
-              <ion-icon name="caret-forward-circle-outline" class="regicon"></ion-icon>
-              Создать презентацию
-            </div>  
+          </ion-col>-->
+        </ion-row>
+        <ion-row class="ion-align-self-center">
+          <ion-col class="">
+            <div class="ion-text-center" >    
+              <img style="width:50%" [src]="image">
+            </div>
           </ion-col>
         </ion-row>
-
       <ion-row class="ion-align-self-center">
         <ion-col class="">
           <div class="ion-text-center" >    

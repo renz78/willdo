@@ -232,7 +232,7 @@ export class AuthService {
   }
 
   async regFormNative(regdata){
-    return this.http2.post('https://willdo.com.ua/p/api/model/k2users/event/reg', regdata, {
+    return this.http2.post('https://willdo.com.ua/p/api/model/k2users/event/regn', regdata, {
       'Content-Type': 'aplication/json'
     })
   }

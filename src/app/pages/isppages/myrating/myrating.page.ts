@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./myrating.page.scss'],
 })
 export class MyratingPage implements OnInit {
-
+  pagename: any = ' Мой рейтинг';
   constructor() { }
 
   ngOnInit() {

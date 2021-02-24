@@ -1,5 +1,43 @@
 <app-backbtn>{{pagename}}</app-backbtn>
 
-<ion-content>
-
+<ion-content fullscreen>
+    <ion-grid ion-grid class=""> 
+        <ion-row class=" ion-text-center ">
+            <ion-col class="frommess" size="4" offset="4" >
+                <span style="color:white">Сегодня</span>
+            </ion-col>    
+        </ion-row>  
+        <ion-row class="frommess ion-margin-top">
+            
+            <ion-col size="2" >
+                <div class="ion-text-left">
+                <img class="shareicon" src="./assets/img/user.png"><br>
+                </div>
+            </ion-col >
+            <ion-col size="10" >       
+                Игорь Матвеев <span class="wdotext smalltext"> 05.03.2021 </span> <span class="wdotext smalltext">  15:03</span><br>
+                <span class="smalltext">Здравствуйте, нашел Ваш заказ на сайте, готов начать работу.</span>
+                
+            </ion-col>
+            <ion-col size="1">
+            </ion-col>
+        </ion-row>
+        <ion-row class=" ion-margin-top">
+            
+            
+            <ion-col size="9" offset="3" class="tomess">       
+                <span class="wdotext smalltext"> 05.03.2021 </span> <span class="wdotext smalltext">  15:43</span><br>
+                <span class="smalltext">Здравствуйте, перезвоню в течении часа.</span>
+                
+            </ion-col>
+            <ion-col size="1">
+            </ion-col>
+        </ion-row>
+        
+    </ion-grid>
+    <ion-fab vertical="bottom"  slot="fixed" class="ion-text-center" style="margin-left: 10%;">
+            <div class="tomess ">
+                <ion-textarea style="float:left; width:200px;"></ion-textarea><ion-button><ion-icon name="paper-plane" size="large"></ion-icon></ion-button>
+            </div>
+    </ion-fab>   
 </ion-content>

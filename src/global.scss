@@ -74,7 +74,7 @@
   .regicon {
     font-size: 35px!important;
   }
-  ion-input {
+ion-input {
     padding-top: 2px!important;
     padding-bottom: 2px!important;
     border-radius: 20px !important;
@@ -102,4 +102,23 @@ ion-select{
 }
 .backbtn {
   font-size: 2rem;
+}
+.roundwhite {
+  background-color: white;
+  border-radius: 20px;
+  width: 45px;
+  padding-top: 5px;
+}
+.frommess{
+  background-color: #dddddd;
+  border-radius: 20px;
+  padding: 10px;
+}
+.tomess{
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 10px;
+}
+.smalltext{
+  font-size: small;
 }

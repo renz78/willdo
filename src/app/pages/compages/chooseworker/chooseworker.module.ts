@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { ChooseworkerPageRoutingModule } from './chooseworker-routing.module';
 import { ChooseworkerPage } from './chooseworker.page';
 import { ComponentsModule } from '../../../comp/components.module';
+import { ExploreContainerComponentModule } from '../../../explore-container/explore-container.module';
 
 @NgModule({
   imports: [
@@ -12,6 +13,7 @@ import { ComponentsModule } from '../../../comp/components.module';
     FormsModule,
     IonicModule,
     ComponentsModule,
+    ExploreContainerComponentModule,
     ChooseworkerPageRoutingModule
   ],
   declarations: [ChooseworkerPage]

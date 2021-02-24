@@ -9,7 +9,7 @@ import { NavController } from '@ionic/angular';
 export class ChooseworkerDetailPage implements OnInit {
 
   constructor(private navCtrl: NavController) { }
-
+  pagename: any = ' Выбор специалиста';
   ngOnInit() {
   }
   gotoSharePage(): void{

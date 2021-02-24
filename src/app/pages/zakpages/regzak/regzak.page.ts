@@ -19,6 +19,7 @@ export class RegzakPage implements OnInit {
   //image to be displayed in template
  image;
  imageData;
+ pagename: string = ' Регистрация заказчика';
 constructor(
     //private camera: Camera,
     private http: HttpClient,
