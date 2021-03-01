@@ -106,7 +106,7 @@ const routes: Routes = [
         //canActivate: [AuthGuard]
       },
       {
-        path: 'chooseworker-detail',
+        path: 'chooseworker-detail/:workerid',
         loadChildren: () => import('../pages/compages/chooseworker-detail/chooseworker-detail.module').then( m => m.ChooseworkerDetailPageModule),
         //canActivate: [AuthGuard]
       },
@@ -123,6 +123,14 @@ const routes: Routes = [
       {
         path: 'login',
         loadChildren: () => import('../pages/compages/login/login.module').then( m => m.LoginPageModule)
+      },
+      {
+        path: 'dashboard',
+        loadChildren: () => import('../pages/test/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+      },
+      {
+        path: 'details/:myid',
+        loadChildren: () => import('../pages/test/details/details.module').then( m => m.DetailsPageModule)
       },
       {
         path: '',

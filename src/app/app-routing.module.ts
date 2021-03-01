@@ -16,6 +16,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/compages/login/login.module').then( m => m.LoginPageModule)
   },
   
+  // {
+  //   path: 'tabs/chooseworker-detail/:workerid',
+  //   loadChildren: () => import('./pages/compages/chooseworker-detail/chooseworker-detail.module').then( m => m.ChooseworkerDetailPageModule),
+  //   //canActivate: [AuthGuard]
+  // },
 ];
 @NgModule({
   imports: [

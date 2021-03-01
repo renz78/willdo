@@ -2,7 +2,7 @@
 
 <ion-content fullscreen>
   <ion-grid class="ion-margin-top">   
-    <ion-row class="ion-margin-top">
+    <ion-row class="ion-margin-top" *ngFor="let wk of workers">
       <ion-col size="2" >
         <div class="ion-text-center roundwhite">
           <ion-icon name="heart-outline" size="large"></ion-icon>
@@ -16,107 +16,18 @@
       <ion-col size="8" >       
         <span >Поклейка обоев</span><br>
         <span >Исполнитель</span>
-        <b> Игорь Матвеев</b>
+        <b> {{wk.name}}</b>
         <app-explore-container></app-explore-container>
         <div class="ion-text-center" >
-          <ion-button class="primary" style="width:100%" shape="round" routerLink="/tabs/chooseworker-detail">Связаться</ion-button>
+          <ion-button class="primary" style="width:100%" shape="round" [routerLink]="['/tabs/chooseworker-detail/', wk.user_id]" routerDirection="forward">Связаться</ion-button>
+
+          <!-- <ion-button class="primary" style="width:100%" shape="round" (click)="goToProductDetails(wk.user_id)"  >Связаться</ion-button> -->
         </div>
       </ion-col>
       <ion-col size="1">
       </ion-col>
     </ion-row>
-    <ion-row class="ion-margin-top">
-      <ion-col size="2" >
-        <div class="ion-text-center roundwhite">
-          <ion-icon name="heart-outline" size="large"></ion-icon>
-        </div>
-      </ion-col>
-      <ion-col size="2" >
-        <div class="ion-text-left">
-          <img class="shareicon" src="./assets/img/user.png"><br>
-        </div>
-      </ion-col >
-      <ion-col size="8" >       
-        <span >Поклейка обоев</span><br>
-        <span >Исполнитель</span>
-        <b> Игорь Матвеев</b>
-        <app-explore-container></app-explore-container>
-        <div class="ion-text-center" >
-          <ion-button class="primary" style="width:100%" shape="round" routerLink="/tabs/chooseworker-detail">Связаться</ion-button>
-        </div>
-      </ion-col>
-      <ion-col size="1">
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-margin-top">
-      <ion-col size="2" >
-        <div class="ion-text-center roundwhite">
-          <ion-icon name="heart-outline" size="large"></ion-icon>
-        </div>
-      </ion-col>
-      <ion-col size="2" >
-        <div class="ion-text-left">
-          <img class="shareicon" src="./assets/img/user.png"><br>
-        </div>
-      </ion-col >
-      <ion-col size="8" >       
-        <span >Поклейка обоев</span><br>
-        <span >Исполнитель</span>
-        <b> Игорь Матвеев</b>
-        <app-explore-container></app-explore-container>
-        <div class="ion-text-center" >
-          <ion-button class="primary" style="width:100%" shape="round" routerLink="/tabs/chooseworker-detail">Связаться</ion-button>
-        </div>
-      </ion-col>
-      <ion-col size="1">
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-margin-top">
-      <ion-col size="2" >
-        <div class="ion-text-center roundwhite">
-          <ion-icon name="heart-outline" size="large"></ion-icon>
-        </div>
-      </ion-col>
-      <ion-col size="2" >
-        <div class="ion-text-left">
-          <img class="shareicon" src="./assets/img/user.png"><br>
-        </div>
-      </ion-col >
-      <ion-col size="8" >       
-        <span >Поклейка обоев</span><br>
-        <span >Исполнитель</span>
-        <b> Игорь Матвеев</b>
-        <app-explore-container></app-explore-container>
-        <div class="ion-text-center" >
-          <ion-button class="primary" style="width:100%" shape="round" routerLink="/tabs/chooseworker-detail">Связаться</ion-button>
-        </div>
-      </ion-col>
-      <ion-col size="1">
-      </ion-col>
-    </ion-row>
-    <ion-row class="ion-margin-top">
-      <ion-col size="2" >
-        <div class="ion-text-center roundwhite">
-          <ion-icon name="heart-outline" size="large"></ion-icon>
-        </div>
-      </ion-col>
-      <ion-col size="2" >
-        <div class="ion-text-left">
-          <img class="shareicon" src="./assets/img/user.png"><br>
-        </div>
-      </ion-col >
-      <ion-col size="8" >       
-        <span >Поклейка обоев</span><br>
-        <span >Исполнитель</span>
-        <b> Игорь Матвеев</b>
-        <app-explore-container></app-explore-container>
-        <div class="ion-text-center" >
-          <ion-button class="primary" style="width:100%" shape="round" routerLink="/tabs/chooseworker-detail">Связаться</ion-button>
-        </div>
-      </ion-col>
-      <ion-col size="1">
-      </ion-col>
-    </ion-row>
+    
     
   </ion-grid>   
 </ion-content>
