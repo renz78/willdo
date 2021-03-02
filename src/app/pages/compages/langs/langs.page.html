@@ -5,43 +5,55 @@
         <ion-row class="ion-margin-top">
           
           <ion-col>
-            <div class="ion-text-center">
-              <img class="shareicon" src="./assets/img/icons/ukr.png"><br>
-              Українська
+            <div class="lang ua" (click)="doActive('ua')" >
+              <div class="ion-text-center">
+                <img class="shareicon" src="./assets/img/icons/ukr.png"><br>
+                Українська
+              </div>
             </div>
           </ion-col>
           <ion-col>
+            <div class="lang en"  (click)="doActive('en')" >
             <div class="ion-text-center"> 
              <img class="shareicon" src="./assets/img/icons/eng.png"><br>
               English
-            </div> 
+            </div>
+          </div> 
           </ion-col>
           <ion-col>
+            <div class="lang ru"  (click)="doActive('ru')" >
             <div class="ion-text-center">
               <img class="shareicon" src="./assets/img/icons/rus.png"><br>
               Русский
-            </div>  
+            </div>
+          </div>  
           </ion-col>
           
         </ion-row>
         <ion-row >
           <ion-col>
+            <div class="lang pl"  (click)="doActive('pl')" >
             <div class="ion-text-center">
               <img class="shareicon" src="./assets/img/icons/pol.png"><br>
               Polski
             </div>
+          </div>
           </ion-col>
           <ion-col>
+            <div class="lang yi"  (click)="doActive('yi')" >
             <div class="ion-text-center"> 
              <img class="shareicon" src="./assets/img/icons/yid.png"><br>
               לשון הקדש
-            </div> 
+            </div>
+          </div> 
           </ion-col>
           <ion-col>
+            <div class="lang bl"  (click)="doActive('bl')" >
            <div class="ion-text-center"> 
              <img class="shareicon" src="./assets/img/icons/bel.png"><br>
               Беларускі  
-            </div> 
+            </div>
+          </div> 
           </ion-col>
         </ion-row>
         
@@ -49,7 +61,7 @@
         <ion-row class="ion-margin-top">
             <ion-col class="ion-margin-top">
               <div class="ion-text-center" >
-                <ion-button class="primary" style="width:70%" shape="round" (click)="alert(333)">Выбрать</ion-button>
+                <ion-button class="primary" style="width:70%" shape="round" (click)="chooseLang()">Выбрать</ion-button>
               </div>
             </ion-col>
         </ion-row>

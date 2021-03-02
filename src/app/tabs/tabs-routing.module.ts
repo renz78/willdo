@@ -125,12 +125,8 @@ const routes: Routes = [
         loadChildren: () => import('../pages/compages/login/login.module').then( m => m.LoginPageModule)
       },
       {
-        path: 'dashboard',
-        loadChildren: () => import('../pages/test/dashboard/dashboard.module').then( m => m.DashboardPageModule)
-      },
-      {
-        path: 'details/:myid',
-        loadChildren: () => import('../pages/test/details/details.module').then( m => m.DetailsPageModule)
+        path: 'neworder',
+        loadChildren: () => import('../pages/zakpages/neworder/neworder.module').then( m => m.NeworderPageModule)
       },
       {
         path: '',

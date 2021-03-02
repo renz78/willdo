@@ -30,13 +30,13 @@ export class ChooseworkerDetailPage implements OnInit {
         //finalize(() => loading.dismiss())
       ).subscribe(data => {
         console.log('native data:', data)
-        this.worker = JSON.parse(data.data)
+        this.worker = JSON.parse(data.data[0])
       }, err => {
         console.log('js call error', err)
       })  
     } else {
       this.userService.getOneWorker(this.workerid).subscribe(data => {
-        this.worker = data;
+        this.worker = data[0];
         console.log(data);
       })
     }

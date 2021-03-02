@@ -15,4 +15,7 @@ export class ExploreContainerComponent implements OnInit {
   gotoSharePage(): void{
     this.navCtrl.navigateForward('tabs/tab2');
   }
+  rate(){
+    console.log('rate');
+  }
 }

@@ -1,93 +1,55 @@
 <app-backbtn>{{pagename}}</app-backbtn>
 
 <ion-content fullscreen>
-  <ion-grid class="ion-margin-top">   
+  <ion-grid>   
+    <ion-row>
+      <ion-col size="12" >
+        <div class="ion-text-center">
+          <b>Здравствуйте, меня зовут {{worker.name}}!</b>
+        </div>
+      </ion-col>
+    </ion-row>
     <ion-row class="ion-margin-top">
-      <ion-col size="3" offset="1">
+      <ion-col size="4" offset="1">
         <div class="ion-text-left">
           <img class="shareicon" src="./assets/img/user.png"><br>
         </div>
       </ion-col>
-      <ion-col  >
-        <b>Игорь Матвеев</b>{{ workerid }}<br>
-        <span class="wdotext">Исполнитель</span>
+      <ion-col size="6" >
+        <b>{{worker.name}} {{worker.surname}}</b> {{worker.last_visit}} <br>
+        {{worker.address}}<br>
+        {{worker.age}} год<br>
+        Выполнил {{worker.coltasks}} заданий
         <app-explore-container></app-explore-container>
-        <!--<app-rating [(rating)]="rating" ></app-rating>-->
-      </ion-col>
-      <ion-col size="1">
+        Контакт <b [ngClass]="{smalltext:true}">{{worker.phone}}</b>
       </ion-col>
     </ion-row>
-    <ion-row class="ion-margin-top">
-      <ion-col size="4" offset="1" >
-          <b>Рубрика </b> 
-      </ion-col>
-      <ion-col size="6">
-          <span>Услуги для животных</span><br>
-      </ion-col>
-    </ion-row>
-    <ion-row class="">
-      <ion-col size="4" offset="1" >
-          <b>Подрубрика </b> 
-      </ion-col>
-      <ion-col size="6">
-          <span>Выгул собак</span><br>
+    <ion-row >
+      <ion-col size="10" offset="1" >
+          <b>Обо мне</b> 
       </ion-col> 
     </ion-row>
-    <ion-row class="">
-      <ion-col size="4" offset="1" >
-          <b>Оплачено </b> 
-      </ion-col>
-      <ion-col size="6">
-          <span>до 31.12.2021</span><br>
+    <ion-row >
+      <ion-col size="11" offset="1" >
+          <span>{{worker.user_description}}</span> 
       </ion-col> 
     </ion-row>
-    <ion-row class="">
-      <ion-col size="4" offset="1" >
-          <b>Осталось дней </b> 
-      </ion-col>
-      <ion-col size="6">
-          <span>120</span><br>
+    <ion-row >
+      <ion-col size="10" offset="1" >
+          <b>Виды выполняемых работ</b> 
       </ion-col> 
     </ion-row>
-    <ion-row class="ion-margin-top">
-      <ion-col size="4" offset="1" >
-          <b>Рубрика </b> 
-      </ion-col>
-      <ion-col size="6">
-          <span>Услуги для животных</span><br>
-      </ion-col>
-    </ion-row>
-    <ion-row class="">
-      <ion-col size="4" offset="1" >
-          <b>Подрубрика </b> 
-      </ion-col>
-      <ion-col size="6">
-          <span>Выгул собак</span><br>
-      </ion-col> 
-    </ion-row>
-    <ion-row class="">
-      <ion-col size="4" offset="1" >
-          <b>Оплачено </b> 
-      </ion-col>
-      <ion-col size="6">
-          <span>до 31.12.2021</span><br>
-      </ion-col> 
-    </ion-row>
-    <ion-row class="">
-      <ion-col size="4" offset="1" >
-          <b>Осталось дней </b> 
-      </ion-col>
-      <ion-col size="6">
-          <span>120</span><br>
+    <ion-row >
+      <ion-col size="11" offset="1" >
+          <span *ngFor="let sv of worker['serv']; let i = index">{{sv.name}}<br></span> 
       </ion-col> 
     </ion-row>
     <ion-row class="ion-align-self-center">
         <ion-col class="ion-margin-top">
           <div class="ion-text-center" >    
-            <ion-button class="primary" style="width:70%" shape="round" (click)="qwer()">Оплатить</ion-button>
+            <ion-button class="primary" style="width:70%" shape="round" (click)="qwer()">Предложить задание</ion-button>
           </div>
         </ion-col>
     </ion-row>
-    
   </ion-grid>   
 </ion-content>

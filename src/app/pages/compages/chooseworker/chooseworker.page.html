@@ -14,9 +14,9 @@
         </div>
       </ion-col >
       <ion-col size="8" >       
-        <span >Поклейка обоев</span><br>
-        <span >Исполнитель</span>
-        <b> {{wk.name}}</b>
+        <span class="smalltext" *ngFor="let sv of wk['serv']; let i = index">{{sv.name}}<br></span>
+        <span class="smalltext">Исполнитель</span>
+        <b class="smalltext"> {{wk.name}}</b>
         <app-explore-container></app-explore-container>
         <div class="ion-text-center" >
           <ion-button class="primary" style="width:100%" shape="round" [routerLink]="['/tabs/chooseworker-detail/', wk.user_id]" routerDirection="forward">Связаться</ion-button>
@@ -26,6 +26,7 @@
       </ion-col>
       <ion-col size="1">
       </ion-col>
+      <hr>
     </ion-row>
     
     

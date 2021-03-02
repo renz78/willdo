@@ -15,6 +15,8 @@ import { Router } from '@angular/router';
 export class ChooseworkerPage implements OnInit {
   pagename: any = ' Выбор специалиста';
   workers: any = [];
+
+  
   constructor(
     private navCtrl: NavController,
     private  userService: UserService,
