@@ -41,5 +41,9 @@ export class ChooseworkerDetailPage implements OnInit {
       })
     }
   }
+
+  greateNewTask() {
+    this.router.navigateByUrl('/tabs/neworder');
+  }
   
 }

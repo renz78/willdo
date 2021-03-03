@@ -88,6 +88,19 @@ ion-input {
     //max-height: 30px;
     height: 30px;
 }
+.txtarea{
+  padding-top: 2px!important;
+    padding-bottom: 2px!important;
+    border-radius: 20px !important;
+    padding-left: 20px !important;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    border: 1px solid #ffffff;
+    border-bottom: 0px !important;
+    box-shadow: none !important;
+    background-color: #ffffff!important;
+    
+}
 ion-select{
     // border-radius: 20px !important;
     padding-top: 1px!important;
@@ -107,7 +120,7 @@ ion-select{
   background-color: white;
   border-radius: 20px;
   width: 45px;
-  padding-top: 5px;
+  padding-top: 8px;
 }
 .frommess{
   background-color: #dddddd;
@@ -133,4 +146,8 @@ ion-select{
 }
 .smalltext{
   font-size: 14px;
+}
+.delinp{
+  color: #d24a43;
+  font-size: 30px;
 }

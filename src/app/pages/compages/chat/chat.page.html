@@ -1,7 +1,7 @@
 <app-backbtn>{{pagename}}</app-backbtn>
 
 <ion-content fullscreen>
-    <ion-grid ion-grid class=""> 
+    <ion-grid ion-grid class="" id="maingrid"> 
         <ion-row class=" ion-text-center ">
             <ion-col class="frommess" size="4" offset="4" >
                 <span style="color:white">Сегодня</span>
@@ -15,7 +15,7 @@
                 </div>
             </ion-col >
             <ion-col size="10" >       
-                Игорь Матвеев <span class="wdotext smalltext"> 05.03.2021 </span> <span class="wdotext smalltext">  15:03</span><br>
+                Игорь Матвеев <span class="wdotext smalltext"> 02.03.2021 </span> <span class="wdotext smalltext">  15:03</span><br>
                 <span class="smalltext">Здравствуйте, нашел Ваш заказ на сайте, готов начать работу.</span>
                 
             </ion-col>
@@ -26,7 +26,7 @@
             
             
             <ion-col size="9" offset="3" class="tomess">       
-                <span class="wdotext smalltext"> 05.03.2021 </span> <span class="wdotext smalltext">  15:43</span><br>
+                <span class="wdotext smalltext"> 02.03.2021 </span> <span class="wdotext smalltext">  15:43</span><br>
                 <span class="smalltext">Здравствуйте, перезвоню в течении часа.</span>
                 
             </ion-col>
@@ -37,7 +37,7 @@
     </ion-grid>
     <ion-fab vertical="bottom"  slot="fixed" class="ion-text-center" style="margin-left: 10%;">
             <div class="tomess ">
-                <ion-textarea style="float:left; width:200px;"></ion-textarea><ion-button><ion-icon name="paper-plane" size="large"></ion-icon></ion-button>
+                <ion-textarea style="float:left; width:200px;" id="myTextarea" [(ngModel)]="messtext" ></ion-textarea><ion-button (click)="sendMess()"><ion-icon name="paper-plane" size="large"></ion-icon></ion-button>
             </div>
     </ion-fab>   
 </ion-content>
