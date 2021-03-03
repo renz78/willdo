@@ -6,42 +6,40 @@ import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, from, of, Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-chooseworker-detail',
-  templateUrl: './chooseworker-detail.page.html',
-  styleUrls: ['./chooseworker-detail.page.scss'],
+  selector: 'app-choosebyusl',
+  templateUrl: './choosebyusl.page.html',
+  styleUrls: ['./choosebyusl.page.scss'],
 })
-export class ChooseworkerDetailPage implements OnInit {
-  workerid = null;
-  worker: any = [];
+export class ChoosebyuslPage implements OnInit {
+  category_id = null;
+  category: any = [];
+  pagename: any = ' Выбрать исполнителя';
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private  userService: UserService,
     private plt: Platform,
     private router: Router
-    ) { }
-  pagename: any = ' Выбор специалиста';
+  ) { }
+
   ngOnInit() {
-    this.workerid = this.activatedRoute.snapshot.paramMap.get('workerid');
+    this.category_id = this.activatedRoute.snapshot.paramMap.get('category_id');
     if(this.plt.is('capacitor') || this.plt.is('cordova')){
-      let nativeCall = this.userService.getOneWorkerNative(this.workerid);
+      let nativeCall = this.userService.getOneCategoryNative(this.category_id);
       from(nativeCall).pipe(
         //finalize(() => loading.dismiss())
       ).subscribe(data => {
         console.log('native data:', data)
-        this.worker = JSON.parse(data.data[0])
+        this.category = JSON.parse(data.data[0])
       }, err => {
         console.log('js call error', err)
       })  
     } else {
-      this.userService.getOneWorker(this.workerid).subscribe(data => {
-        this.worker = data[0];
-        console.log(data);
+      this.userService.getOneCategory(this.category_id).subscribe(data => {
+        this.category = data[0];
+        console.log(this.category);
       })
     }
   }
 
-  greateNewTask() {
-    this.router.navigateByUrl('/tabs/neworder');
-  }
-  
 }

@@ -28,90 +28,93 @@
 @import '~animate.css/animate.min.css';
 
 
-  ion-content {
-    --background: url('assets/img/bg.png') no-repeat center/cover fixed;
-  }   
-  
-  ion-button {
-    --background: #d24a43;
-  } 
-  
-  ion-toolbar {
-    --background: #e6e6e6;
-  }
+ion-content {
+  --background: url('assets/img/bg.png') no-repeat center/cover fixed;
+}   
 
-  ion-menu-button{
-    color:  #e58b1e;
-    
-  }
-  .wdobtn{
-    color:  #e58b1e;
-    margin-right: 10px;
-  }
-  ion-menu{
-    // --background: #e6e6e6;
-  }
-  .ion-item-background{
-    --background: #e6e6e6;
-  }
+ion-button {
+  --background: #d24a43;
+} 
 
-  ion-back-button{
-    color:  #e58b1e;
-  }
-  .wdotext{
-    color:  #e58b1e;
-  }
-  .shareicon {
-    width: 65px;
-  }
-  .caticon {
-    width: 65px;
-    border: 1px solid grey;
-    background-color: white;
-    border-radius: 35px;
-    padding: 5px;
-  }
-  .regicon {
-    font-size: 35px!important;
-  }
+ion-toolbar {
+  --background: #e6e6e6;
+}
+
+ion-menu-button{
+  color:  #e58b1e;
+  
+}
+.wdobtn{
+  color:  #e58b1e;
+  margin-right: 10px;
+}
+ion-menu{
+  // --background: #e6e6e6;
+}
+.ion-item-background{
+  --background: #e6e6e6;
+}
+
+ion-back-button{
+  color:  #e58b1e;
+}
+.wdotext{
+  color:  #e58b1e;
+}
+.shareicon {
+  width: 65px;
+}
+.catdiv{
+  width: 70px;
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 35px;
+  text-align: center;
+}
+.caticon {
+  width: 60px;
+  padding: 10px;
+}
+.regicon {
+  font-size: 35px!important;
+}
 ion-input {
-    padding-top: 2px!important;
-    padding-bottom: 2px!important;
-    border-radius: 20px !important;
-    padding-left: 20px !important;
-    font-size: 0.9em;
-    margin-bottom: 5px;
-    border: 1px solid #ffffff;
-    border-bottom: 0px !important;
-    box-shadow: none !important;
-    background-color: #ffffff!important;
-    //max-height: 30px;
-    height: 30px;
+  padding-top: 2px!important;
+  padding-bottom: 2px!important;
+  border-radius: 20px !important;
+  padding-left: 20px !important;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  border: 1px solid #ffffff;
+  border-bottom: 0px !important;
+  box-shadow: none !important;
+  background-color: #ffffff!important;
+  //max-height: 30px;
+  height: 30px;
 }
 .txtarea{
   padding-top: 2px!important;
-    padding-bottom: 2px!important;
-    border-radius: 20px !important;
-    padding-left: 20px !important;
-    font-size: 0.9em;
-    margin-bottom: 5px;
-    border: 1px solid #ffffff;
-    border-bottom: 0px !important;
-    box-shadow: none !important;
-    background-color: #ffffff!important;
-    
+  padding-bottom: 2px!important;
+  border-radius: 20px !important;
+  padding-left: 20px !important;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  border: 1px solid #ffffff;
+  border-bottom: 0px !important;
+  box-shadow: none !important;
+  background-color: #ffffff!important;
 }
 ion-select{
-    // border-radius: 20px !important;
-    padding-top: 1px!important;
-    padding-bottom: 1px!important;
-    padding-left: 10px !important;
-    font-size: 0.9em;
-    margin-bottom: 1px;
-    border: 1px solid #ffffff;
-    border-bottom: 0px !important;
-    box-shadow: none !important;
-    background-color: #ffffff!important;
+  // border-radius: 20px !important;
+  padding-top: 1px!important;
+  padding-bottom: 1px!important;
+  padding-left: 10px !important;
+  font-size: 0.9em;
+  margin-bottom: 1px;
+  border: 1px solid #ffffff;
+  border-bottom: 0px !important;
+  box-shadow: none !important;
+  background-color: #ffffff!important;
 }
 .backbtn {
   font-size: 2rem;
@@ -150,4 +153,36 @@ ion-select{
 .delinp{
   color: #d24a43;
   font-size: 30px;
+}
+ion-datetime{
+  padding-top: 2px!important;
+  padding-bottom: 2px!important;
+  border-radius: 20px !important;
+  padding-left: 20px !important;
+  font-size: 0.9em;
+  // margin-bottom: 5px;
+  border: 1px solid #ffffff;
+  // border-bottom: 0px !important;
+  // box-shadow: none !important;
+  background-color: #ffffff!important;
+  //max-height: 30px;
+  height: 30px;
+}
+
+.timeitem{
+  border-radius: 25px !important;
+  max-height: 50px;
+}
+.divcat{
+  display: block;
+  vertical-align: middle;
+}
+.caticon2{
+  width: 30px;
+}
+.ml-3{
+  margin-left: 20px;
+}
+.smalltext2{
+  font-size: 11px;
 }

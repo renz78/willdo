@@ -41,14 +41,24 @@ export class UserService {
   }
 
   getOneWorker(workerid: string) {
-    return this.http.get('https://willdo.com.ua/p/api/model/workers/id/'+workerid);
+    return this.http.get('https://willdo.com.ua/p/api/model/workers/id/' + workerid);
   }
 
   async getOneWorkerNative(workerid: string) {
-    return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/workers/id/'+workerid, {}, {
+    return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/workers/id/' + workerid, {}, {
       'Content-Type': 'aplication/json'
     });
   }
+
+  getOneCategory(category_id: string) {
+    return this.http.get('https://willdo.com.ua/p/api/model/k2shop_category/id/' + category_id);
+}
+
+async getOneCategoryNative(category_id: string) {
+  return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/k2shop_category/id/' + category_id, {}, {
+    'Content-Type': 'aplication/json'
+  })
+}
 
 
   func(){

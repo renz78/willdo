@@ -7,12 +7,10 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./profileisp.page.scss'],
 })
 export class ProfileispPage implements OnInit {
-
+  pagename = ' Мой профиль';
   constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
   }
-  gotoSharePage(): void{
-    this.navCtrl.navigateForward('tabs/share');
-  }
+  
 }

@@ -2,12 +2,12 @@
 
 <ion-content fullscreen>
     <ion-grid class="ion-margin-top">   
-          <ion-row class="ion-margin-top">
-            <ion-col *ngFor="let usl of category" size="4">
-              <div class="ion-text-center">
-                <img class="caticon" src="https://willdo.com.ua/{{usl.catimg}}"><br>
+          <ion-row class="ion-margin-top ion-text-center">
+            <ion-col *ngFor="let usl of category" class="ion-text-center" size="4">             
+                <div class="catdiv" style="margin-left:25%"  [routerLink]="['/tabs/choosebyusl/', usl.category_id]" >
+                  <img class="caticon ion-text-center" src="https://willdo.com.ua/{{usl.catimg}}"><br>
+                </div>
                 {{usl.name}}
-              </div>
             </ion-col>
             
           </ion-row>

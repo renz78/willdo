@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, from, of, Subject } from 'rxjs';
 //import { Observable } from 'rxjs/Observable';
 import { finalize } from 'rxjs/operators';
 import { LoadingController, Platform } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categoryzak',
@@ -16,8 +17,9 @@ export class CategoryzakPage implements OnInit {
   category: any = [];
 
   constructor(
-    private  userService: UserService, 
+    private  userService: UserService,
     private loadingCtrl: LoadingController,
+    private router: Router,
     private plt: Platform
     ) {}
 
@@ -47,5 +49,11 @@ export class CategoryzakPage implements OnInit {
     }
     
   }
+
+  gotoChoseByUsl(id) {
+    console.log(id);
+    //this.router.navigateByUrl('/tabs/choosebyusl');
+  }
+
 
 }

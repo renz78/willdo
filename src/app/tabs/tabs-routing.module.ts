@@ -129,6 +129,14 @@ const routes: Routes = [
         loadChildren: () => import('../pages/zakpages/neworder/neworder.module').then( m => m.NeworderPageModule)
       },
       {
+        path: 'searchbyname',
+        loadChildren: () => import('../pages/zakpages/searchbyname/searchbyname.module').then( m => m.SearchbynamePageModule)
+      },
+      {
+        path: 'choosebyusl/:category_id',
+        loadChildren: () => import('../pages/zakpages/choosebyusl/choosebyusl.module').then( m => m.ChoosebyuslPageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

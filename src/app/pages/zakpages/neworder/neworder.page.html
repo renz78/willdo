@@ -15,7 +15,21 @@
       </ion-row>
       <ion-row class="">
         <ion-col size="10" offset="1">
-          <ion-datetime value="2019-10-01T15:43:40.394Z" display-timezone="utc"></ion-datetime>
+          <b class="smalltext">Дата и время начала работ</b>
+        </ion-col>
+      </ion-row>  
+      <ion-row class="">
+        <ion-col size="5" offset="1">
+            <ion-item class="timeitem">
+              <ion-datetime displayFormat="MM.DD.YY" dateFormat="MM.DD.YY" placeholder="Дата" [(ngModel)]="reg.datetask" name="datetask"></ion-datetime>
+              <ion-icon name="calendar" slot="end"></ion-icon>
+            </ion-item>
+        </ion-col>
+        <ion-col size="5">
+            <ion-item class="timeitem">
+              <ion-datetime displayFormat="HH:mm" dateFormat="HH:mm" placeholder="Время" [(ngModel)]="reg.timetask" name="timetask"></ion-datetime>
+              <ion-icon name="time" slot="end"></ion-icon>
+            </ion-item>
         </ion-col>
       </ion-row>
       
@@ -29,7 +43,7 @@
       </ion-row>  
       <ion-row class="">
         <ion-col size="10" offset="1">
-          <ion-input type="text" required placeholder="Бюджет" [(ngModel)]="reg.begin_price" name="begin_price"></ion-input>
+          <ion-input type="number" required placeholder="Бюджет" [(ngModel)]="reg.begin_price" name="begin_price"></ion-input>
         </ion-col>
         <ion-col size="1">
           <ion-icon class="delinp" (click)="cleanBeginprice()" name="close-outline"></ion-icon>
@@ -46,8 +60,8 @@
       <ion-row >
           <ion-col size="10" offset="1">
             <div class="">
-              <ion-button >
-                <ion-icon (click)='captureImage()' name="add-circle-outline" class="regicon"></ion-icon>
+              <ion-button (click)='captureImage()'>
+                <ion-icon  name="add-circle-outline" class="regicon"></ion-icon>
               </ion-button>
               Загрузить фото
             </div>

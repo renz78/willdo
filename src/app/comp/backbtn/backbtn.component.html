@@ -4,11 +4,11 @@
     <ion-buttons slot="start">
       <ion-menu-button menu="m1"></ion-menu-button>
     </ion-buttons>
-    <ion-title class="wdotext" (click)="myBackButton()">
+    <ion-title class="wdotext ion-text-center" (click)="myBackButton()">
       <i class="fa fa-arrow-left"></i>
       <ng-content></ng-content>
     </ion-title>
-    <ion-buttons slot="end" routerLink="/tabs/share">
+    <ion-buttons slot="end" (click)="goToShare()" >
         <i class="fa fa-share-alt wdobtn" style="font-size:22px;"></i>
     </ion-buttons>
   </ion-toolbar>

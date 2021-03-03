@@ -53,21 +53,21 @@ export class NeworderPage implements OnInit {
   }
 
   checkForm () {
-    if (this.reg.password !== this.reg.password2) {
-      return this.check = {res: 0, text: 'Пароли не совпадают'}
-    }
-    if (!this.reg.fio) {
-      return this.check = {res: 0, text: 'Вы не ввели ФИО'}
-    }
-    if (!this.reg.email) {
-      return this.check = {res: 0, text: 'Вы не ввели Email'}
-    }
-    if (!this.reg.money) {
-      return this.check = {res: 0, text: 'Вы не выбрали способ оплаты'}
-    }
-    if (!this.reg.langid) {
-      return this.check = {res: 0, text: 'Вы не выбрали язык'}
-    }
+    // if (this.reg.password !== this.reg.password2) {
+    //   return this.check = {res: 0, text: 'Пароли не совпадают'}
+    // }
+    // if (!this.reg.fio) {
+    //   return this.check = {res: 0, text: 'Вы не ввели ФИО'}
+    // }
+    // if (!this.reg.email) {
+    //   return this.check = {res: 0, text: 'Вы не ввели Email'}
+    // }
+    // if (!this.reg.money) {
+    //   return this.check = {res: 0, text: 'Вы не выбрали способ оплаты'}
+    // }
+    // if (!this.reg.langid) {
+    //   return this.check = {res: 0, text: 'Вы не выбрали язык'}
+    // }
     return this.check = {res: 1, text: 'ОК'}
   }
 
@@ -78,33 +78,33 @@ export class NeworderPage implements OnInit {
     
     if (check.res === 1) {
       if(this.plt.is('capacitor') || this.plt.is('cordova')){
-        let nativeCall = this.auth.regFormNative(this.reg);
+        let nativeCall = this.auth.orderFormNative(this.reg);
         from(nativeCall).pipe(
 
           ).subscribe(data => {
             let res = JSON.parse(data.data)
             if (res.reg === 1) {
-              this.showAlert('Поздравляем', 'Вы успешно зарегистрировались');
-              this.router.navigateByUrl('/tabs/login');
+              this.showAlert('Поздравляем', 'Заявка создана');
+              //this.router.navigateByUrl('/tabs/login');
             } else {
-              this.showAlert('ошибка регистрации', res.text);
+              this.showAlert('ошибка', res.text);
             }
           }, err => {
             console.log('js call error', err)
           }
         )
       } else {
-        this.auth.regForm(regdata).subscribe(async res => {
+        this.auth.orderForm(regdata).subscribe(async res => {
           if (res.reg === 1) {
-            this.showAlert('Поздравляем', 'Вы успешно зарегистрировались');
-            this.router.navigateByUrl('/tabs/login');
+            this.showAlert('Поздравляем', 'Заявка создана');
+            //this.router.navigateByUrl('/tabs/login');
           } else {
-            this.showAlert('ошибка регистрации', res.text);
+            this.showAlert('ошибка', res.text);
           }
         });
       }
     } else {
-      this.showAlert('Ошибка регистрациии', check.text)
+      this.showAlert('Ошибка', check.text)
     }
   }
 

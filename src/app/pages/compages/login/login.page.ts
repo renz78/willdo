@@ -14,8 +14,8 @@ import { finalize } from 'rxjs/operators';
 })
 export class LoginPage implements OnInit {
   credentials = {
-    email: 'tus2006@ukr.net',
-    pw: '123456'
+    email: 'customer',
+    pw: 'customer'
   };
   user = {
     name: 'admin',
@@ -70,7 +70,7 @@ export class LoginPage implements OnInit {
               role: this.authinfo.role
             });
             this.storage.set('authinfo', res);
-            this.router.navigateByUrl('/tabs/profileisp');
+            this.routeByRole(this.authinfo.role);
           } else {
             this.showAlert('Ошибка авторизации', 'Вы внесли неверные данные')
           }
@@ -88,7 +88,8 @@ export class LoginPage implements OnInit {
             auth: this.authinfo.auth,
             role: this.authinfo.role
           });
-          this.router.navigateByUrl('/tabs/profileisp');
+          this.storage.set('authinfo', res);
+          this.routeByRole(this.authinfo.role);
         } else {
           this.showAlert('Ошибка авторизации', 'Вы внесли неверные данные')
         }
@@ -100,6 +101,18 @@ export class LoginPage implements OnInit {
     //console.log(res);
     
   }
+
+  routeByRole(role) {
+        if (role === 'cb0548d236e28b0c5e656df100613507') {
+          this.router.navigateByUrl('/tabs/categoryzak');
+        } else if (role === '3152a0b2e5dde07001780e616909d468') {
+          this.router.navigateByUrl('/tabs/profileisp');
+        } else {
+          this.router.navigateByUrl('/tabs/profileisp');
+        }
+  }
+
+  
   logout() {
     this.authinfo = {
       auth: null,

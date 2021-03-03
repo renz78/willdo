@@ -1,0 +1,28 @@
+<app-backbtn>{{pagename}}</app-backbtn>
+
+<ion-content fullscreen>
+  <ion-grid class="ion-margin-top">
+    <ion-row>
+      <ion-col size="12" >
+        <div class="ion-text-center divcat">
+          <img class="caticon2" src="https://willdo.com.ua/{{category.catimg}}"> <b > {{category.name}}</b>
+        </div>
+      </ion-col>
+    </ion-row>   
+    <ion-row class="ion-margin-top ">
+      <ion-col *ngFor="let usl of category['serv']; let i = index" class="" size="6">             
+          <ion-checkbox color="dark" class="ml-3"></ion-checkbox><span class="smalltext2 "> {{usl.name}}</span>
+      </ion-col>
+      
+    </ion-row>
+    
+
+    <ion-row class="ion-margin-top">
+        <ion-col class="ion-margin-top">
+          <div class="ion-text-center" >
+            <ion-button class="primary" style="width:70%" shape="round" (click)="alert(333)">Заказать услугу</ion-button>
+          </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>   
+</ion-content>
