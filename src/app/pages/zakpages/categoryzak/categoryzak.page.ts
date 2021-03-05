@@ -15,7 +15,7 @@ export class CategoryzakPage implements OnInit {
   pagename: any = ' Меню заказчика';
   //category: Observable<any>;
   category: any = [];
-
+  public show:boolean = false;
   constructor(
     private  userService: UserService,
     private loadingCtrl: LoadingController,
@@ -47,6 +47,7 @@ export class CategoryzakPage implements OnInit {
         console.log(data);
       })
     }
+    this.timeOutCat(7000);
     
   }
 
@@ -55,5 +56,19 @@ export class CategoryzakPage implements OnInit {
     //this.router.navigateByUrl('/tabs/choosebyusl');
   }
 
+  timeOutCat(msecnd) {
+    setTimeout(()=>{                          
+      this.show = true;
+    }, msecnd);
+  }
+
+  hideCat() {
+    this.show = false;
+    this.timeOutCat(9000);
+  }
+
+  ionViewDidEnter() {
+    this.hideCat();
+  }
 
 }

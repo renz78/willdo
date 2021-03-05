@@ -125,6 +125,7 @@ ion-select{
   width: 45px;
   padding-top: 8px;
 }
+
 .frommess{
   background-color: #dddddd;
   border-radius: 20px;
@@ -185,4 +186,88 @@ ion-datetime{
 }
 .smalltext2{
   font-size: 11px;
+}
+.swiper-pagination-bullet-active {
+    background: #e58b1e;
+}
+.roundleft{
+  border-radius: 20px 0px 0px 20px!important;
+  position: fixed;
+  left: 18px;
+  z-index: 1000;
+  width: 51%;
+  margin-top: 3px; height: 38px; padding-top: 10px;
+}
+.roundright{
+  border-radius: 0px 20px 20px 0px!important;
+}
+.order-success{
+  padding: 7px 0px 0px 10px;
+  background-color: #fdfcfa!important;
+}
+.ordicon-success{
+  background-color: #e58b1e;
+  border-radius: 22px;
+  width: 45px;
+  padding: 5px;
+  color: white;
+}
+.order-bad{
+  padding: 7px 0px 0px 10px;
+  background-color: #b1b1b1!important;
+}
+.badext{
+  color: #f2f1f0;
+}
+.ordicon-bad{
+  background-color: white;
+  border-radius: 22px;
+  width: 45px;
+  padding: 5px;
+  color:#b1b1b1;
+}
+.order-new{
+  padding: 7px 0px 0px 10px;
+  background-color: #e7ebc8!important;
+}
+.newtext{
+  color: #71764b;
+}
+.ordicon-new{
+  background-color: #71764b;
+  border-radius: 22px;
+  width: 45px;
+  padding: 5px;
+  color: white;
+}
+.order-taken{
+  padding: 7px 0px 0px 10px;
+  background-color: #f2d9c3!important;
+}
+.takentext{
+  color: #b28f72;
+}
+.ordicon-taken{
+  background-color: #b28f72;
+  border-radius: 22px;
+  width: 45px;
+  padding: 5px;
+  color: white;
+}
+.order-work{
+  padding: 7px 0px 0px 10px;
+  background-color: #d0dee9!important;
+}
+.worktext{
+  color: #6794cb;
+}
+.ordicon-work{
+  background-color: #6794cb;
+  border-radius: 22px;
+  width: 45px;
+  padding: 5px;
+  color: white;
+}
+.orddata{
+  float: right;
 }

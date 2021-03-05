@@ -137,6 +137,15 @@ const routes: Routes = [
         loadChildren: () => import('../pages/zakpages/choosebyusl/choosebyusl.module').then( m => m.ChoosebyuslPageModule)
       },
       {
+        path: 'myorders',
+        loadChildren: () => import('../pages/zakpages/myorders/myorders.module').then( m => m.MyordersPageModule)
+      },  
+      {
+        path: 'searchorder',
+        loadChildren: () => import('../pages/isppages/searchorder/searchorder.module').then( m => m.SearchorderPageModule)
+      },
+      
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'

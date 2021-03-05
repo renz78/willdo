@@ -1,0 +1,145 @@
+<app-backbtn>{{pagename}}</app-backbtn>
+
+<ion-content fullscreen>
+  <ion-grid class="ion-margin-top">   
+    <!-- <ion-row class="ion-margin-top" *ngFor="let ord of orders">
+      <ion-col size="2" >
+        <div class="ion-text-center roundwhite">
+          <ion-icon name="heart-outline" size="large"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="2" >
+        <div class="ion-text-left">
+          <img class="shareicon" src="https://willdo.com.ua/{{ord.photo}}"><br>
+        </div>
+      </ion-col >
+      <ion-col size="8" >       
+        
+        <span class="smalltext">Исполнитель</span>
+        <b class="smalltext"> {{ord.name}}</b>
+      </ion-col>
+      <ion-col size="1">
+      </ion-col>
+      <hr>
+    </ion-row> -->
+    <div class="item-content order-success">
+      <ion-row class="ion-margin-top" >
+        <ion-col size="2" >
+          <div class="ion-text-center ordicon-success">
+            <ion-icon name="thumbs-up-outline" size="large"></ion-icon>
+          </div>
+        </ion-col>
+        <ion-col size="2" >
+          <div class="ion-text-left">
+            <img class="shareicon" src="./assets/img/user.png"><br>
+          </div>
+        </ion-col >
+        <ion-col size="8" >       
+          <span class="smalltext"><b>Задание № 123 </b></span>
+          <span class="smalltext orddata"><b>  03.03.2021</b></span><br>
+          <span class="smalltext">Поклейка обоев</span><br>
+          <span class="smalltext">Исполнитель Иванов Петр</span><br>
+          <span class="wdotext">Задание выполнено </span>
+        </ion-col>
+        <ion-col size="1">
+        </ion-col>
+      </ion-row>
+    </div>
+  
+    <div class="item-content order-bad">
+    
+    <ion-row class="ion-margin-top " >
+      <ion-col size="2" >
+        <div class="ion-text-center ordicon-bad">
+          <ion-icon name="thumbs-down-outline" size="large"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="2" >
+        <div class="ion-text-left">
+          <img class="shareicon" src="./assets/img/user.png"><br>
+        </div>
+      </ion-col >
+      <ion-col size="8" >       
+        <span class="smalltext"><b>Задание № 122 </b></span>
+        <span class="smalltext orddata"><b>  02.03.2021</b></span><br>
+        <span class="smalltext">Подготовка стен</span><br>
+        <span class="smalltext">Исполнитель Иванов Петр</span><br>
+        <span class="badtext">Задание не выполнено </span>
+      </ion-col>
+      <ion-col size="1">
+      </ion-col>
+    
+    </ion-row>
+  </div>
+  
+  <div class="item-content order-new">
+    <ion-row class="ion-margin-top" >
+      <ion-col size="2" >
+        <div class="ion-text-center ordicon-new">
+          <ion-icon name="alert-outline" size="large"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="2" >
+        <div class="ion-text-left">
+          <img class="shareicon" src="./assets/img/user.png"><br>
+        </div>
+      </ion-col >
+      <ion-col size="8" >       
+        <span class="smalltext"><b>Задание № 121 </b></span>
+        <span class="smalltext orddata"><b>  02.03.2021</b></span><br>
+        <span class="smalltext">Подготовка пола</span><br>
+        <span class="smalltext">Исполнитель Иванов Петр</span><br>
+        <span class="newtext">Задание опубликрвано </span>
+      </ion-col>
+      <ion-col size="1">
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="item-content order-taken">
+    <ion-row class="ion-margin-top" >
+      <ion-col size="2" >
+        <div class="ion-text-center ordicon-taken">
+          <ion-icon name="calculator-outline" size="large"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="2" >
+        <div class="ion-text-left">
+          <img class="shareicon" src="./assets/img/user.png"><br>
+        </div>
+      </ion-col >
+      <ion-col size="8" >       
+        <span class="smalltext"><b>Задание № 123 </b></span>
+        <span class="smalltext orddata"><b>  03.03.2021</b></span><br>
+        <span class="smalltext">Поклейка обоев</span><br>
+        <span class="smalltext">Исполнитель Иванов Петр</span><br>
+        <span class="takentext">Задание взято </span>
+      </ion-col>
+      <ion-col size="1">
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="item-content order-work">
+    <ion-row class="ion-margin-top" >
+      <ion-col size="2" >
+        <div class="ion-text-center ordicon-work">
+          <ion-icon name="build-outline" size="large"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="2" >
+        <div class="ion-text-left">
+          <img class="shareicon" src="./assets/img/user.png"><br>
+        </div>
+      </ion-col >
+      <ion-col size="8" >       
+        <span class="smalltext"><b>Задание № 123 </b></span>
+        <span class="smalltext orddata"><b>  03.03.2021</b></span><br>
+        <span class="smalltext">Поклейка обоев</span><br>
+        <span class="smalltext">Исполнитель Иванов Петр</span><br>
+        <span class="worktext">Задание в работе </span>
+      </ion-col>
+      <ion-col size="1">
+      </ion-col>
+    </ion-row>
+  </div>  
+  </ion-grid>   
+</ion-content>

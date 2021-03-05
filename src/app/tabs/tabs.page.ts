@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
-
-  constructor() {}
+  private mainpage: any = 'myorders';
+  constructor(
+    private storage: Storage
+  ) {}
 
 }

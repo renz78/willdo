@@ -57,7 +57,7 @@ export class AppComponent {
     {
       name: 'Мои заказы',
       icon: 'cart-outline',
-      link: '/tabs/chooseworker'
+      link: '/tabs/myorders'
     },
     {
       name: 'Языки',

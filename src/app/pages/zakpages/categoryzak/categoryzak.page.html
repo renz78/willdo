@@ -1,6 +1,6 @@
 <app-backbtn>{{pagename}}</app-backbtn>
 
-<ion-content fullscreen>
+<ion-content fullscreen (click)="hideCat()">
     <ion-grid class="ion-margin-top">   
           <ion-row class="ion-margin-top ion-text-center">
             <ion-col *ngFor="let usl of category" class="ion-text-center" size="4">             
@@ -13,12 +13,25 @@
           </ion-row>
           
   
-          <ion-row class="ion-margin-top">
-              <ion-col class="ion-margin-top">
+          <ion-row class="ion-text-center">
+              <ion-col class="ion-text-center">
                 <div class="ion-text-center" >
-                  <ion-button class="primary" style="width:70%" shape="round" (click)="alert(333)">Выбрать</ion-button>
+                  
+                
+                
+                  <ion-input class="roundleft" (ionInput)="hideCat()" style="" type="text" placeholder="Что надо сделать?"></ion-input>
+                
+
+                 
+                 
+                </div>
+              </ion-col>
+              <ion-col class="ion-text-center">
+                <div class="ion-text-center" >  
+                  <ion-button class="primary roundright"  shape="round" [routerLink]="['/tabs/chooseworker']">  Заказать услугу</ion-button>
                 </div>
               </ion-col>
           </ion-row>
+              <img [style.display]="show ? 'block' : 'none'" src="./assets/img/catwait.gif" style="width:50%; position:relative;  right: -60%;">
     </ion-grid>   
   </ion-content>

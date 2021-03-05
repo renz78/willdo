@@ -16,13 +16,116 @@
       
     </ion-row>
     
-
-    <ion-row class="ion-margin-top">
-        <ion-col class="ion-margin-top">
+    <ion-slides pager>
+      <ion-slide>
+        <ion-grid class="ion-margin-top">
+        <ion-row class="ion-margin-bottom">
+          <ion-col size="3" offset="1">
+            <div class="ion-text-left">
+              <img class="shareicon" src="./assets/img/user.png"><br>
+            </div>
+          </ion-col>
+          <ion-col  >
+            <b>Игорь Матвеев</b><br>
+            <app-explore-container></app-explore-container>
+            <!--<app-rating [(rating)]="rating" ></app-rating>-->
+          </ion-col>
+          <ion-col size="1">
+          </ion-col>
+          <ion-col size="10" offset="1" >
+            <div class="">
+              <p>Здравствуйте, я сварщик 5 разряда. </p>
+            </div>
+          
+            <div class="ion-text-center" >
+              <ion-button class="primary" style="width:70%" shape="round" (click)="alert(333)">Заказать услугу</ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide>
+      <ion-grid class="ion-margin-top">
+      <ion-row class="ion-margin-bottom">
+        <ion-col size="3" offset="1">
+          <div class="ion-text-left">
+            <img class="shareicon" src="./assets/img/user.png"><br>
+          </div>
+        </ion-col>
+        <ion-col  >
+          <b>Игорь Матвеев</b><br>
+          <app-explore-container></app-explore-container>
+          <!--<app-rating [(rating)]="rating" ></app-rating>-->
+        </ion-col>
+        <ion-col size="1">
+        </ion-col>
+        <ion-col size="10" offset="1" >
+          <div class="">
+            <p>Здравствуйте, я сварщик 5 разряда. </p>
+          </div>
+        
           <div class="ion-text-center" >
             <ion-button class="primary" style="width:70%" shape="round" (click)="alert(333)">Заказать услугу</ion-button>
           </div>
         </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+  <ion-slide>
+    <ion-grid class="ion-margin-top">
+    <ion-row class="ion-margin-bottom">
+      <ion-col size="3" offset="1">
+        <div class="ion-text-left">
+          <img class="shareicon" src="./assets/img/user.png"><br>
+        </div>
+      </ion-col>
+      <ion-col  >
+        <b>Игорь Матвеев</b><br>
+        <app-explore-container></app-explore-container>
+        <!--<app-rating [(rating)]="rating" ></app-rating>-->
+      </ion-col>
+      <ion-col size="1">
+      </ion-col>
+      <ion-col size="10" offset="1" >
+        <div class="">
+          <p>Здравствуйте, я сварщик 5 разряда. </p>
+        </div>
+      
+        <div class="ion-text-center" >
+          <ion-button class="primary" style="width:70%" shape="round" (click)="alert(333)">Заказать услугу</ion-button>
+        </div>
+      </ion-col>
     </ion-row>
+  </ion-grid>
+</ion-slide>
+<ion-slide>
+  <ion-grid class="ion-margin-top">
+  <ion-row class="ion-margin-bottom">
+    <ion-col size="3" offset="1">
+      <div class="ion-text-left">
+        <img class="shareicon" src="./assets/img/user.png"><br>
+      </div>
+    </ion-col>
+    <ion-col  >
+      <b>Игорь Матвеев</b><br>
+      <app-explore-container></app-explore-container>
+      <!--<app-rating [(rating)]="rating" ></app-rating>-->
+    </ion-col>
+    <ion-col size="1">
+    </ion-col>
+    <ion-col size="10" offset="1" >
+      <div class="">
+        <p>Здравствуйте, я сварщик 5 разряда. </p>
+      </div>
+    
+      <div class="ion-text-center" >
+        <ion-button class="primary" style="width:70%" shape="round" (click)="alert(333)">Заказать услугу</ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-slide>
+</ion-slides>
+    
   </ion-grid>   
 </ion-content>
