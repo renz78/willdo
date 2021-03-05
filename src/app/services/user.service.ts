@@ -60,6 +60,15 @@ async getOneCategoryNative(category_id: string) {
   })
 }
 
+getOrders() {
+  return this.http.get('https://willdo.com.ua/p/api/model/wdo_tasks');
+}
+
+async getOrdersNative() {
+return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/wdo_tasks', {}, {
+  'Content-Type': 'aplication/json'
+})
+}
 
   func(){
     this.user = 'test';

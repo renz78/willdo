@@ -13,7 +13,7 @@ import { BehaviorSubject, Observable, from, of, Subject } from 'rxjs';
 export class ChoosebyuslPage implements OnInit {
   category_id = null;
   category: any = [];
-  pagename: any = ' Выбрать исполнителя';
+  pagename: any = ' Выбрать специалиста';
 
   constructor(
     private activatedRoute: ActivatedRoute,

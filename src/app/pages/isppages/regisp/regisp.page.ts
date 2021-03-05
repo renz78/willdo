@@ -19,7 +19,7 @@ export class RegispPage implements OnInit {
   //image to be displayed in template
  image;
  imageData;
- pagename: string = ' Регистрация исполнителя';
+ pagename: string = ' Регистрация специалиста';
 constructor(
     //private camera: Camera,
     private http: HttpClient,

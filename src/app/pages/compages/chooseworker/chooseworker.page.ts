@@ -16,10 +16,9 @@ export class ChooseworkerPage implements OnInit {
   pagename: any = ' Выбор специалиста';
   workers: any = [];
 
-  
   constructor(
     private navCtrl: NavController,
-    private  userService: UserService,
+    private userService: UserService,
     private plt: Platform,
     private router: Router
     ) { }

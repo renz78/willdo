@@ -154,6 +154,8 @@ ion-select{
 .delinp{
   color: #d24a43;
   font-size: 30px;
+  font-weight: bold;
+  float: left;
 }
 ion-datetime{
   padding-top: 2px!important;
@@ -196,6 +198,14 @@ ion-datetime{
   left: 18px;
   z-index: 1000;
   width: 51%;
+  margin-top: 3px; height: 38px; padding-top: 10px;
+}
+.roundleft2{
+  border-radius: 20px 0px 0px 20px!important;
+  position: fixed;
+  left: 40px;
+  z-index: 1000;
+  width: 56%;
   margin-top: 3px; height: 38px; padding-top: 10px;
 }
 .roundright{
