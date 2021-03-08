@@ -6,7 +6,7 @@
       <ion-row class="ion-text-center">
               <ion-col class="ion-text-center" offset="1">
                 <div class="ion-text-center" >
-                  <ion-input class="roundleft2" (ionInput)="hideCat()" style="" type="text" placeholder="Поиск по ключевым словам"></ion-input>
+                  <ion-input class="roundleft2" (ionInput)="hideCat()" [(ngModel)]="reg.task_name" name="task_name" type="text" placeholder="Поиск по ключевым словам"></ion-input>
                 </div>
               </ion-col>
               <ion-col class="ion-text-center">
@@ -26,7 +26,7 @@
       </ion-row>  
       <ion-row class="">
         <ion-col size="9" offset="1">
-          <ion-input type="text" required placeholder="Радиус поиска" [(ngModel)]="reg.typelink" name="typelink"></ion-input>
+          <ion-input type="text" required placeholder="Радиус поиска" [(ngModel)]="reg.distance" name="distance"></ion-input>
         </ion-col>
         <ion-col size="1">
           <ion-icon class="delinp" (click)="cleanTypelink()" name="close-outline"></ion-icon>
@@ -34,7 +34,7 @@
       </ion-row>  
       <ion-row class="">
         <ion-col size="9" offset="1">
-          <ion-input type="text" required placeholder="Дата публикации объявления" [(ngModel)]="reg.begin_price" name="begin_price"></ion-input>
+          <ion-input type="text" required placeholder="Дата публикации объявления" [(ngModel)]="reg.datecreate" name="datecreate"></ion-input>
         </ion-col>
         <ion-col size="1">
           <ion-icon class="delinp" (click)="cleanBeginprice()" name="close-outline"></ion-icon>

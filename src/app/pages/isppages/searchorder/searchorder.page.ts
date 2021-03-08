@@ -25,27 +25,28 @@ export class SearchorderPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(this.plt.is('capacitor') || this.plt.is('cordova')){
-      let nativeCall = this.userService.getOrdersNative();
-      from(nativeCall).pipe(
-        //finalize(() => loading.dismiss())
-      ).subscribe(data => {
-        console.log('native data:', data)
-        this.orders = JSON.parse(data.data)
-      }, err => {
-        console.log('js call error', err)
-      })
-    } else {
-      this.userService.getOrders().subscribe(data => {
-        this.orders = data;
-        console.log(data);
-      })
-    }
+    // if(this.plt.is('capacitor') || this.plt.is('cordova')){
+    //   let nativeCall = this.userService.getOrdersNative();
+    //   from(nativeCall).pipe(
+    //     //finalize(() => loading.dismiss())
+    //   ).subscribe(data => {
+    //     console.log('native data:', data)
+    //     this.orders = JSON.parse(data.data)
+    //   }, err => {
+    //     console.log('js call error', err)
+    //   })
+    // } else {
+    //   this.userService.getOrders().subscribe(data => {
+    //     this.orders = data;
+    //     console.log(data);
+    //   })
+    // }
   }
 
   searchOrders() {
+    
     if(this.plt.is('capacitor') || this.plt.is('cordova')){
-      let nativeCall = this.userService.getOrdersNative();
+      let nativeCall = this.userService.getOrdersNative(this.reg);
       from(nativeCall).pipe(
         //finalize(() => loading.dismiss())
       ).subscribe(data => {
@@ -55,7 +56,7 @@ export class SearchorderPage implements OnInit {
         console.log('js call error', err)
       })  
     } else {
-      this.userService.getOrders().subscribe(data => {
+      this.userService.getOrders(this.reg).subscribe(data => {
         this.orders = data;
         console.log(data);
       })

@@ -14,8 +14,8 @@ import { finalize } from 'rxjs/operators';
 })
 export class LoginPage implements OnInit {
   credentials = {
-    email: 'customer',
-    pw: 'customer'
+    email: 'worker',
+    pw: 'worker'
   };
   user = {
     name: 'admin',
