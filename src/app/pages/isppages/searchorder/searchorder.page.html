@@ -2,16 +2,16 @@
 
 <ion-content fullscreen>
   <ion-grid class="">   
-    <form (ngSubmit)="orderForm()">
+    <form (ngSubmit)="searchOrders()">
       <ion-row class="ion-text-center">
-              <ion-col class="ion-text-center" offset="1">
+              <ion-col class="ion-text-center" size="6" offset="1">
                 <div class="ion-text-center" >
-                  <ion-input class="roundleft2" (ionInput)="hideCat()" [(ngModel)]="reg.task_name" name="task_name" type="text" placeholder="Поиск по ключевым словам"></ion-input>
+                  <ion-input class="roundleft2" [(ngModel)]="reg.task_name" name="task_name" type="text" placeholder="Поиск по ключевым словам"></ion-input>
                 </div>
               </ion-col>
-              <ion-col class="ion-text-center">
+              <ion-col class="ion-text-center" size="4">
                 <div class="ion-text-center" >  
-                  <ion-button class="primary roundright"  shape="round" [routerLink]="['/tabs/chooseworker']">  Искать</ion-button>
+                  <ion-button class="primary roundright"  shape="round" [routerLink]="['/tabs/chooseworker']">Искать</ion-button>
                 </div>
               </ion-col>
       </ion-row>
@@ -29,15 +29,16 @@
           <ion-input type="text" required placeholder="Радиус поиска" [(ngModel)]="reg.distance" name="distance"></ion-input>
         </ion-col>
         <ion-col size="1">
-          <ion-icon class="delinp" (click)="cleanTypelink()" name="close-outline"></ion-icon>
+          <ion-icon class="delinp" (click)="cleanDistance()" name="close-outline"></ion-icon>
         </ion-col>
       </ion-row>  
       <ion-row class="">
         <ion-col size="9" offset="1">
-          <ion-input type="text" required placeholder="Дата публикации объявления" [(ngModel)]="reg.datecreate" name="datecreate"></ion-input>
+          <!-- <ion-input type="text" required placeholder="Дата публикации объявления" [(ngModel)]="reg.datecreate" name="datecreate"></ion-input> -->
+          <ion-datetime displayFormat="MM.DD.YY" dateFormat="MM.DD.YY" placeholder="Дата публикации объявления" [(ngModel)]="reg.datecreate" name="datecreate"></ion-datetime>
         </ion-col>
         <ion-col size="1">
-          <ion-icon class="delinp" (click)="cleanBeginprice()" name="close-outline"></ion-icon>
+          <ion-icon class="delinp" (click)="cleanDate()" name="close-outline"></ion-icon>
         </ion-col>
       </ion-row>  
       <ion-row class="ion-align-self-center">
@@ -49,27 +50,20 @@
       </ion-row>
     </form>
 
-    <ion-row class="ion-margin-top" *ngFor="let order of orders">
-      <ion-col size="2" >
-        <div class="ion-text-center roundwhite">
-          <ion-icon name="heart-outline" size="large"></ion-icon>
+    <ion-row class="" *ngFor="let order of orders">
+      <ion-col size="2" offset="1" >
+        <div class="ion-text-left">
+          <div class="taskdiv" >
+            <img class="taskicon ion-text-center" src="https://willdo.com.ua/{{order.catimg}}"><br>
+          </div>
+          
         </div>
       </ion-col>
-      <ion-col size="2" >
-        <div class="ion-text-left">
-          <img class="shareicon" src="https://willdo.com.ua/{{order.photo}}"><br>
-        </div>
-      </ion-col >
-      <ion-col size="8" >       
       
-        <span class="smalltext">Специалист</span>
-        <b class="smalltext"> {{order.name}}</b>
-        <app-explore-container></app-explore-container>
-        <div class="ion-text-center" >
-          <ion-button class="primary" style="width:100%" shape="round" [routerLink]="['/tabs/chooseworker-detail/', wk.user_id]" routerDirection="forward">Связаться</ion-button>
-
-          <!-- <ion-button class="primary" style="width:100%" shape="round" (click)="goToProductDetails(wk.user_id)"  >Связаться</ion-button> -->
-        </div>
+      <ion-col size="9" >       
+        <b class="smalltext" [routerLink]="['/tabs/searchorder-detail/', order.taskid]"> {{order.task_name}}</b><br>
+        <span class="smalltext">{{order.task_address}}</span><br>
+        <span class="smalltext">Начать {{order.datestart}} <b>{{order.begin_price}}</b> грн</span><br>
       </ion-col>
       <ion-col size="1">
       </ion-col>

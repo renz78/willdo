@@ -61,6 +61,9 @@ ion-back-button{
 .wdotext{
   color:  #e58b1e;
 }
+.wdotext2{
+  color:  #d24a43;
+}
 .shareicon {
   width: 65px;
 }
@@ -202,10 +205,10 @@ ion-datetime{
 }
 .roundleft2{
   border-radius: 20px 0px 0px 20px!important;
-  position: fixed;
-  left: 40px;
+  position: relative;
+  
   z-index: 1000;
-  width: 56%;
+  width: 115%;
   margin-top: 3px; height: 38px; padding-top: 10px;
 }
 .roundright{
@@ -283,4 +286,16 @@ ion-datetime{
 }
 .fullscreen-bg{
   background-color: #e6e6e2;
+}
+
+.taskicon {
+  width: 40px;
+  padding: 5px;
+}
+.taskdiv{
+  width: 45px;
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
 }

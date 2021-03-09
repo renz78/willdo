@@ -43,6 +43,22 @@ export class SearchorderPage implements OnInit {
     // }
   }
 
+  cleanTaskaddress() {
+    this.reg.task_address = '';
+  }
+  cleanBeginprice() {
+    this.reg.begin_price = '';
+  }
+  cleanTypelink() {
+    this.reg.typelink = '';
+  }
+  cleanDistance() {
+    this.reg.distance = '';
+  }
+  cleanDate() {
+    this.reg.datecreate = '';
+  }
+
   searchOrders() {
     
     if(this.plt.is('capacitor') || this.plt.is('cordova')){

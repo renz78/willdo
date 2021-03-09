@@ -111,6 +111,11 @@ const routes: Routes = [
         //canActivate: [AuthGuard]
       },
       {
+        path: 'searchorder-detail/:taskid',
+        loadChildren: () => import('../pages/isppages/searchorder-detail/searchorder-detail.module').then( m => m.SearchorderDetailPageModule)
+      },
+    
+      {
         path: 'myrating',
         loadChildren: () => import('../pages/isppages/myrating/myrating.module').then( m => m.MyratingPageModule),
         //canActivate: [AuthGuard]
