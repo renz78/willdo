@@ -10,9 +10,9 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col size="11" offset="1">
+      <ion-col size="10" offset="1">
         <div class="">
-          <b class="wdotext2">Задача активна</b><br>
+          <ion-button class="primary" style="width:100%">Задача активна</ion-button><br>
           <b>просмотров <span class="wdotext2">48</span></b><br>
           <b>Создано <span class="wdotext2">{{ task.datecreate }}</span></b>
         </div>
@@ -27,7 +27,7 @@
       </ion-col>
       <ion-col size="7" >
         <b>Задание № {{ task.task_num }}</b><br>
-        Заказчик задания
+        Заказчик задания<br>
         {{ task.firstname }} {{ task.lastname | slice:0:1 }}.<br>
          Нет отзывов
       </ion-col>

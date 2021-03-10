@@ -149,7 +149,25 @@ const routes: Routes = [
         path: 'searchorder',
         loadChildren: () => import('../pages/isppages/searchorder/searchorder.module').then( m => m.SearchorderPageModule)
       },
+      {
+        path: 'success-reg',
+        loadChildren: () => import('../pages/compages/success-reg/success-reg.module').then( m => m.SuccessRegPageModule)
+      },
+      {
+        path: 'linkisp',
+        loadChildren: () => import('../pages/zakpages/linkisp/linkisp.module').then( m => m.LinkispPageModule)
+      },
+      {
+        path: 'payusl',
+        loadChildren: () => import('../pages/isppages/payusl/payusl.module').then( m => m.PayuslPageModule)
+      },
+      {
+        path: 'ordersisp',
+        loadChildren: () => import('../pages/isppages/ordersisp/ordersisp.module').then( m => m.OrdersispPageModule)
+      },
+    
       
+    
       {
         path: '',
         redirectTo: '/tabs/tab1',

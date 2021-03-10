@@ -4,6 +4,7 @@ import { UserService } from '../../../services/user.service';
 import { LoadingController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, from, of, Subject } from 'rxjs';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-searchorder-detail',
@@ -17,7 +18,8 @@ export class SearchorderDetailPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private  userService: UserService,
     private plt: Platform,
-    private router: Router
+    private router: Router,
+    private navCtrl: NavController
     ) { }
   
   pagename: any = ' Поиск заказа';
@@ -42,7 +44,7 @@ export class SearchorderDetailPage implements OnInit {
   }
 
   takeTask() {
-    
+    this.navCtrl.navigateForward('tabs/success-reg');
   }
 
 }

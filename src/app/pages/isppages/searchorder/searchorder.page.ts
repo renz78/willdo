@@ -60,20 +60,23 @@ export class SearchorderPage implements OnInit {
   }
 
   searchOrders() {
-    
     if(this.plt.is('capacitor') || this.plt.is('cordova')){
       let nativeCall = this.userService.getOrdersNative(this.reg);
       from(nativeCall).pipe(
         //finalize(() => loading.dismiss())
       ).subscribe(data => {
-        console.log('native data:', data)
         this.orders = JSON.parse(data.data)
       }, err => {
         console.log('js call error', err)
-      })  
+      })
     } else {
       this.userService.getOrders(this.reg).subscribe(data => {
-        this.orders = data;
+        if (data[0]) {
+          this.orders = data;
+        } else {
+          this.orders = [];
+        }
+        
         console.log(data);
       })
     }

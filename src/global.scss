@@ -299,3 +299,13 @@ ion-datetime{
   border-radius: 20px;
   text-align: center;
 }
+
+ion-list.ex3 {
+  background-color: #e6e6e6;
+  height: 345px;
+  overflow: auto;
+}
+
+ion-list.ex3>item{
+  background-color: #e6e6e6!important;
+}

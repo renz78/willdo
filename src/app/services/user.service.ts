@@ -60,11 +60,26 @@ export class UserService {
     })
   }
 
-  getOrders(search) {
-    return this.http.get('https://willdo.com.ua/p/api/model/wdo_tasks');
+  getOrders(search: object) {
+    let addurl = '';
+    for (const [key, value] of Object.entries(search)) {
+      if (`${value}`) {
+        addurl = addurl + `/${key}/${value}`;
+        console.log(`${key}: ${value}`);
+      }
+      
+    }
+    return this.http.get('https://willdo.com.ua/p/api/model/wdo_tasks' + addurl, search);
   }
 
-  async getOrdersNative(search) {
+  async getOrdersNative(search: object) {
+    let addurl = '';
+    for (const [key, value] of Object.entries(search)) {
+      if (`${value}`) {
+        addurl = addurl + `/${key}/${value}`;
+        console.log(`${key}: ${value}`);
+      }
+    }
     return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/wdo_tasks', {}, {
       'Content-Type': 'aplication/json'
     })

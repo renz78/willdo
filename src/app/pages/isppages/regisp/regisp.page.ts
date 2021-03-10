@@ -98,7 +98,7 @@ constructor(
             let res = JSON.parse(data.data)
             if (res.reg === 1) {
               this.showAlert('Поздравляем', 'Вы успешно зарегистрировались');
-              this.router.navigateByUrl('/tabs/login');
+              this.router.navigateByUrl('/tabs/success-reg');
             } else {
               this.showAlert('ошибка регистрации', res.text);
             }
@@ -110,7 +110,7 @@ constructor(
         this.auth.regForm(regdata).subscribe(async res => {
           if (res.reg === 1) {
             this.showAlert('Поздравляем', 'Вы успешно зарегистрировались');
-            this.router.navigateByUrl('/tabs/login');
+            this.router.navigateByUrl('/tabs/success-reg');
           } else {
             this.showAlert('ошибка регистрации', res.text);
           }

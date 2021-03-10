@@ -16,7 +16,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/compages/login/login.module').then( m => m.LoginPageModule)
   },
   
-
 ];
 @NgModule({
   imports: [

@@ -11,7 +11,7 @@
               </ion-col>
               <ion-col class="ion-text-center" size="4">
                 <div class="ion-text-center" >  
-                  <ion-button class="primary roundright"  shape="round" [routerLink]="['/tabs/chooseworker']">Искать</ion-button>
+                  <ion-button class="primary roundright"  shape="round" (click)="searchOrders()">Искать</ion-button>
                 </div>
               </ion-col>
       </ion-row>
@@ -26,7 +26,7 @@
       </ion-row>  
       <ion-row class="">
         <ion-col size="9" offset="1">
-          <ion-input type="text" required placeholder="Радиус поиска" [(ngModel)]="reg.distance" name="distance"></ion-input>
+          <ion-input type="text" required placeholder="Радиус поиска, км" [(ngModel)]="reg.distance" name="distance"></ion-input>
         </ion-col>
         <ion-col size="1">
           <ion-icon class="delinp" (click)="cleanDistance()" name="close-outline"></ion-icon>
@@ -35,7 +35,7 @@
       <ion-row class="">
         <ion-col size="9" offset="1">
           <!-- <ion-input type="text" required placeholder="Дата публикации объявления" [(ngModel)]="reg.datecreate" name="datecreate"></ion-input> -->
-          <ion-datetime displayFormat="MM.DD.YY" dateFormat="MM.DD.YY" placeholder="Дата публикации объявления" [(ngModel)]="reg.datecreate" name="datecreate"></ion-datetime>
+          <ion-datetime displayFormat="DD.MM.YYYY" dateFormat="DD.MM.YYYY" placeholder="Дата публикации объявления" [(ngModel)]="reg.datecreate" name="datecreate"></ion-datetime>
         </ion-col>
         <ion-col size="1">
           <ion-icon class="delinp" (click)="cleanDate()" name="close-outline"></ion-icon>
@@ -49,8 +49,11 @@
         </ion-col>
       </ion-row>
     </form>
-
-    <ion-row class="" *ngFor="let order of orders">
+   
+    <ion-row >
+    <ion-list class="ex3">
+      <ion-item *ngFor="let order of orders" [routerLink]="['/tabs/searchorder-detail/', order.taskid]">
+    
       <ion-col size="2" offset="1" >
         <div class="ion-text-left">
           <div class="taskdiv" >
@@ -61,13 +64,16 @@
       </ion-col>
       
       <ion-col size="9" >       
-        <b class="smalltext" [routerLink]="['/tabs/searchorder-detail/', order.taskid]"> {{order.task_name}}</b><br>
+        <b class="smalltext" > {{order.task_name}}</b><br>
         <span class="smalltext">{{order.task_address}}</span><br>
         <span class="smalltext">Начать {{order.datestart}} <b>{{order.begin_price}}</b> грн</span><br>
       </ion-col>
       <ion-col size="1">
       </ion-col>
       <hr>
+    
+    </ion-item>
+    </ion-list>
     </ion-row>
   </ion-grid>   
 </ion-content>
