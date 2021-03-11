@@ -1,9 +1,42 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>ordersisp</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-backbtn>{{pagename}}</app-backbtn>
 
-<ion-content>
-
+<ion-content fullscreen>
+  <ion-grid class="ion-margin-top">   
+    <ion-row class="ion-margin-top">
+      <ion-col size="4" offset="2">
+          <span class="smalltext">Город</span>
+      </ion-col>
+      <ion-col size="4">
+          <ion-select interface="popover" [(ngModel)]="tasks.cityid" name="cityid">
+            <ion-select-option value="kiev">Киев</ion-select-option>
+            <ion-select-option value="dnepr">Днепр</ion-select-option>
+          </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-top">
+      <ion-col size="4" offset="2">
+          <span class="smalltext">Радиус</span>
+      </ion-col>
+      <ion-col size="4">
+          <ion-select interface="popover" [(ngModel)]="tasks.distance" name="cityid">
+            <ion-select-option value="3">3 км</ion-select-option>
+            <ion-select-option value="5">5 км</ion-select-option>
+            <ion-select-option value="10">10 км</ion-select-option>
+            <ion-select-option value="20">20 км</ion-select-option>
+            <ion-select-option value="30">30 км</ion-select-option>
+            <ion-select-option value="50">50 км</ion-select-option>
+            <ion-select-option value="100">100 км</ion-select-option>
+          </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-margin-top">
+      <ion-col size="4" offset="2">
+          <span class="smalltext">Дата публикации</span>
+      </ion-col>
+      <ion-col size="4">
+          <ion-datetime displayFormat="DD.MM.YYYY" dateFormat="DD.MM.YYYY" placeholder="" [(ngModel)]="tasks.datecreate" name="datecreate"></ion-datetime>
+      </ion-col>
+    </ion-row>
+    <ion-icon  src="assets/taken2.svg"></ion-icon>
+  </ion-grid>   
 </ion-content>
