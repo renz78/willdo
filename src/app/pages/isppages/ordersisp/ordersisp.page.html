@@ -37,6 +37,51 @@
           <ion-datetime displayFormat="DD.MM.YYYY" dateFormat="DD.MM.YYYY" placeholder="" [(ngModel)]="tasks.datecreate" name="datecreate"></ion-datetime>
       </ion-col>
     </ion-row>
-    <ion-icon  src="assets/taken2.svg"></ion-icon>
+    <ion-row class="ion-margin-top">
+    <ion-col size="11" offset="1">
+      <div (click)="expandItem(item)" *ngFor="let item of items">
+      <ion-row>
+        <ion-col size="2" >
+          <img class="taskicon" src="./assets/img/icons/{{ item.icon }}.png">
+        </ion-col>
+        <ion-col size="10" style="padding-top:30px;">
+            <span class="taskname">{{ item.name }}</span><span class="numinred">3</span>
+        </ion-col>
+      </ion-row>
+    <div>
+      <app-expandable expandHeight="150px" [expanded]="item.expanded">
+      <ion-row>
+        <ion-col size="1" offset="1">
+          <ion-icon name="radio-button-on"></ion-icon>
+        </ion-col>
+        <ion-col size="10">
+            <b class="smalltext">Задание №122</b><br>
+            <span class="smalltext">Подготовка стен под обои</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1" offset="1">
+          <ion-icon name="radio-button-on"></ion-icon>
+        </ion-col>
+        <ion-col size="10">
+            <b class="smalltext">Задание №122</b><br>
+            <span class="smalltext">Подготовка стен под обои</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="1" offset="1">
+          <ion-icon name="radio-button-on"></ion-icon>
+        </ion-col>
+        <ion-col size="10">
+            <b class="smalltext">Задание №122</b><br>
+            <span class="smalltext">Подготовка стен под обои</span>
+        </ion-col>
+      </ion-row>
+      </app-expandable>
+    </div>
+  </div>
+  </ion-col>
+    </ion-row>
+    
   </ion-grid>   
 </ion-content>

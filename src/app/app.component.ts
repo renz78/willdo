@@ -50,11 +50,6 @@ export class AppComponent {
       link: '/tabs/walletisp'
     },
     {
-      name: 'Мой рейтинг',
-      icon: 'star',
-      link: '/tabs/myrating'
-    },
-    {
       name: 'Мои заказы',
       icon: 'cart-outline',
       link: '/tabs/myorders'

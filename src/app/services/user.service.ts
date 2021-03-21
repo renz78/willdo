@@ -69,7 +69,7 @@ export class UserService {
       }
       
     }
-    return this.http.get('https://willdo.com.ua/p/api/model/wdo_tasks' + addurl, search);
+    return this.http.get('https://willdo.com.ua/p/api/model/wdo_tasks' + addurl);
   }
 
   async getOrdersNative(search: object) {
@@ -80,7 +80,7 @@ export class UserService {
         console.log(`${key}: ${value}`);
       }
     }
-    return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/wdo_tasks', {}, {
+    return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/wdo_tasks' + addurl, {}, {
       'Content-Type': 'aplication/json'
     })
   }
