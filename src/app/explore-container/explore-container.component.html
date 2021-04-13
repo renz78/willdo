@@ -1,5 +1,12 @@
-<div>
-  <ion-icon name="star" *ngFor="let num of [1,2,3,4,5,6,7]" style="font-size:20px; color:#ffcf0e"
-    (click)="rate(num)">
-  </ion-icon>
-</div>
+<ionic5-star-rating 
+        activeIcon = "star"
+        defaultIcon = "star"
+        activeColor = "#ffcf0e" 
+        defaultColor = "#f4f4f4"
+        readonly="false"
+        rating="{{rating}}"
+        halfStar = true
+        maxRating = 7
+        fontSize = "24px"
+        (ratingChanged)="logRatingChange($event)">
+    </ionic5-star-rating>

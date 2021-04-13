@@ -133,7 +133,7 @@ export class AppComponent {
       this.storage.get('authinfo').then( (val) => {
         
         if(val){
-          console.log(val.role);
+          console.log(val.userid);
           if (val.role === 'cb0548d236e28b0c5e656df100613507') {
             this.curentmenu = this.zakhmenu;
           } else if (val.role === '3152a0b2e5dde07001780e616909d468') {

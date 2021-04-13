@@ -1,6 +1,7 @@
 <app-backbtn>{{pagename}}</app-backbtn>
 
 <ion-content fullscreen>
+  <div class="ex4" id="scrldiv">
   <ion-grid class="ion-margin-top">   
     <ion-row class="ion-margin-top" *ngFor="let wk of workers">
       <ion-col size="2" >
@@ -17,7 +18,7 @@
         <span class="smalltext" *ngFor="let sv of wk['serv']; let i = index">{{sv.name}}<br></span>
         <span class="smalltext">Специалист</span>
         <b class="smalltext"> {{wk.name}}</b>
-        <app-explore-container></app-explore-container>
+        <app-explore-container [rating]="wk.rating"></app-explore-container>
         <div class="ion-text-center" >
           <ion-button class="primary" style="width:100%" shape="round" [routerLink]="['/tabs/chooseworker-detail/', wk.user_id]" routerDirection="forward">Связаться</ion-button>
 
@@ -30,5 +31,6 @@
     </ion-row>
     
     
-  </ion-grid>   
+  </ion-grid>  
+</div> 
 </ion-content>

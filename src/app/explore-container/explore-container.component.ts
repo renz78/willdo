@@ -7,11 +7,16 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./explore-container.component.scss'],
 })
 export class ExploreContainerComponent implements OnInit {
-  @Input() pagename: string;
 
-  constructor(private navCtrl: NavController) { }
+  @Input() rating: string;
 
-  ngOnInit() {}
+  
+
+  constructor(private navCtrl: NavController) {  }
+
+  ngOnInit() {
+    console.log(this.rating);
+  }
   gotoSharePage(): void{
     this.navCtrl.navigateForward('tabs/tab2');
   }

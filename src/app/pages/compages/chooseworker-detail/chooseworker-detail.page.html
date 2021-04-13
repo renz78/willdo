@@ -20,7 +20,8 @@
         {{worker.address}}<br>
         {{worker.age}} год<br>
         Выполнил {{worker.coltasks}} заданий
-        <app-explore-container></app-explore-container>
+        
+        <app-explore-container [rating]="worker.rating"></app-explore-container>
         Контакт <b [ngClass]="{smalltext:true}">{{worker.phone}}</b>
       </ion-col>
     </ion-row>

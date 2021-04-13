@@ -1,0 +1,40 @@
+<app-backbtn>{{pagename}}</app-backbtn>
+
+<ion-content >
+    <div class="ex3" id="scrldiv">
+        <ion-grid id="maingrid" class="messfield " *ngFor="let ch of chats"> 
+            <ion-row class=" ion-text-center ">
+                <!-- <ion-col class="frommess" size="4" offset="4" >
+                    <span style="color:white">Сегодня</span>
+                </ion-col>     -->
+            </ion-row>  
+            <ion-row  [ngClass]="ch.from_userid !== userid ? 'frommess' : 'tomess'" class="ion-margin-top">
+                
+                <ion-col size="2" *ngIf="ch.from_userid !== userid">
+                    <div class="ion-text-left">
+                    <img class="shareicon" src="https://willdo.com.ua/{{ch.photo}}"><br>
+                    </div>
+                </ion-col >
+                <ion-col size="10" *ngIf="ch.from_userid !== userid">       
+                    {{ch.name}} <span class="wdotext smalltext"> {{ch.datecreate}} </span> <span class="wdotext smalltext">  {{ch.timecreate}}</span><br>
+                    <span class="smalltext">{{ch.chat_text}}</span>
+                    
+                </ion-col>
+                <ion-col size="9" offset="3" class="" *ngIf="ch.from_userid == userid">       
+                    <span class="wdotext smalltext"> {{ch.datecreate}} </span> <span class="wdotext smalltext">  {{ch.timecreate}}</span><br>
+                    <span class="smalltext">{{ch.chat_text}}</span>
+                    
+                </ion-col>
+            
+            </ion-row>
+            
+        </ion-grid>
+    </div>
+    
+    
+</ion-content>
+<ion-fab vertical="bottom" slot="fixed" class="ion-text-center " style="margin-left: 13%; margin-bottom: 12px;">
+    <div class="fieldmess ">
+        <ion-textarea style="float:left; width:200px;" id="myTextarea" [(ngModel)]="messtext" ></ion-textarea><ion-button (click)="sendMess()"><ion-icon name="paper-plane" size="large"></ion-icon></ion-button>
+    </div>
+</ion-fab>   

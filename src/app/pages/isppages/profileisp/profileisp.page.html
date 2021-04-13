@@ -5,14 +5,14 @@
     <ion-row class="ion-margin-top">
       <ion-col size="3" offset="1">
         <div class="ion-text-left">
-          <img class="shareicon" src="./assets/img/user.png"><br>
+          <img class="shareicon" src="https://willdo.com.ua/{{photo}}"><br>
         </div>
       </ion-col>
       <ion-col  >
-        <b>Игорь Матвеев</b><br>
+        <b>{{fio}}</b><br>
         <span class="wdotext">Специалист</span>
         <app-explore-container></app-explore-container>
-        <!--<app-rating [(rating)]="rating" ></app-rating>-->
+        <!-- <app-rating [(rating)]="rating" ></app-rating> -->
       </ion-col>
       <ion-col size="1">
       </ion-col>
@@ -20,10 +20,10 @@
     <ion-row class="">
       <ion-col size="10" offset="1" >
         <div class="">
-          <p><b>Адрес </b> <span>Хрещатик 21, Киев, Украина</span></p>
-          <b>Дата рождения </b> <span>11 ноября 1997 г.</span><br>
-          <b>Мой Email </b> <span>av@corp2.net</span><br>
-          <b>Мой телефон </b> <span>098 054 45 65</span><br>
+          <p><b>Адрес </b> <span>{{address}}</span></p>
+          <b>Дата рождения </b> <span>{{birth_date}}</span><br>
+          <b>Мой Email </b> <span>{{email}}</span><br>
+          <b>Мой телефон </b> <span>{{phone}}</span><br>
           <b>Моя банковская карта </b> <img src="./assets/img/privat.png">
         </div>
       </ion-col>

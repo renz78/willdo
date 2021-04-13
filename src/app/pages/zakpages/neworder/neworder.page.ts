@@ -53,21 +53,24 @@ export class NeworderPage implements OnInit {
   }
 
   checkForm () {
-    // if (this.reg.password !== this.reg.password2) {
-    //   return this.check = {res: 0, text: 'Пароли не совпадают'}
-    // }
-    // if (!this.reg.fio) {
-    //   return this.check = {res: 0, text: 'Вы не ввели ФИО'}
-    // }
-    // if (!this.reg.email) {
-    //   return this.check = {res: 0, text: 'Вы не ввели Email'}
-    // }
-    // if (!this.reg.money) {
-    //   return this.check = {res: 0, text: 'Вы не выбрали способ оплаты'}
-    // }
-    // if (!this.reg.langid) {
-    //   return this.check = {res: 0, text: 'Вы не выбрали язык'}
-    // }
+      if (!this.reg.task_comment) {
+        return this.check = {res: 0, text: 'Вы не описали задание'}
+      }
+      if (!this.reg.datetask) {
+       return this.check = {res: 0, text: 'Вы не ввели дату задания'}
+      }
+      if (!this.reg.timetask) {
+        return this.check = {res: 0, text: 'Вы не ввели время задания'}
+      }
+      if (!this.reg.typelink) {
+        return this.check = {res: 0, text: 'Укажите способ связи с Вами'}
+      }
+      if (!this.reg.begin_price) {
+        return this.check = {res: 0, text: 'Укажите бюджет'}
+      }
+      if (!this.reg.task_address) {
+        return this.check = {res: 0, text: 'Укажите адрес'}
+      }
     return this.check = {res: 1, text: 'ОК'}
   }
 

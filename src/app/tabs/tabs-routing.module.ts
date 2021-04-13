@@ -44,7 +44,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/compages/chat/chat.module').then(m => m.ChatPageModule),
         //canActivate: [AuthGuard]
       },
-      
+      {
+        path: 'chat-detail/:anotheruser',
+        loadChildren: () => import('../pages/compages/chat-detail/chat-detail.module').then( m => m.ChatDetailPageModule)
+      },
       {
         path: 'location',
         loadChildren: () => import('../pages/compages/location/location.module').then( m => m.LocationPageModule),

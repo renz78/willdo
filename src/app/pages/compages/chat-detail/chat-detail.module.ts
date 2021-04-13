@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { ChatPageRoutingModule } from './chat-routing.module';
+import { ChatDetailPageRoutingModule } from './chat-detail-routing.module';
 import { ComponentsModule } from '../../../comp/components.module';
-import { ChatPage } from './chat.page';
+import { ChatDetailPage } from './chat-detail.page';
 
 @NgModule({
   imports: [
@@ -12,8 +12,8 @@ import { ChatPage } from './chat.page';
     FormsModule,
     IonicModule,
     ComponentsModule,
-    ChatPageRoutingModule
+    ChatDetailPageRoutingModule
   ],
-  declarations: [ChatPage]
+  declarations: [ChatDetailPage]
 })
-export class ChatPageModule {}
+export class ChatDetailPageModule {}

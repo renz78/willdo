@@ -128,7 +128,7 @@ constructor(
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Camera
     })
-    console.log(image);
+    //console.log(image);
     //this.image = this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg; base64,${image.base64String}');
     this.image = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
     
@@ -153,14 +153,14 @@ constructor(
   upload(){
     let  url = 'https://willdo.com.ua/p/api/model/k2users/event/upload';
     const date = new Date().valueOf();
-
+    console.log(this.image);
     // Replace extension according to your media type
     const imageName = date+ '.jpeg';
     // call method that creates a blob from dataUri
-    const imageBlob = this.dataURItoBlob(this.imageData);
-    const imageFile = new File([imageBlob], imageName, { type: 'image/jpeg' })
-
-    let  postData = new FormData();
+    const imageFile = this.dataURItoBlob(this.image.changingThisBreaksApplicationSecurity, imageName);
+    //const imageFile = new File([imageBlob], imageName, { type: 'image/jpeg' })
+    console.log(imageFile);
+    let postData = new FormData();
     postData.append('file', imageFile);
 
     let data:Observable<any> = this.http.post(url,postData);
@@ -169,15 +169,16 @@ constructor(
     });
   }
 
-  dataURItoBlob(dataURI) {
-    const byteString = window.atob(dataURI);
-   const arrayBuffer = new ArrayBuffer(byteString.length);
-    const int8Array = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < byteString.length; i++) {
-      int8Array[i] = byteString.charCodeAt(i);
-     }
-    const blob = new Blob([int8Array], { type: 'image/jpeg' });    
-   return blob;
+  dataURItoBlob(dataURI, filename) {
+    let arr = dataURI.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]),
+            n = bstr.length,
+            u8arr = new Uint8Array(n);
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new File([u8arr], filename, {type: mime});
   }
 }
 

@@ -9,6 +9,8 @@ import { AuthService } from '../services/auth.service';
 })
 export class TabsPage implements OnInit {
   private mainpage: any = 'login';
+  colmess: any = 4;
+  condition: boolean = true;
   constructor(
     private storage: Storage,
     private auth: AuthService

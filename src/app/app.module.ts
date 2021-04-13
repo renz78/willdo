@@ -10,9 +10,8 @@ import { AppComponent } from './app.component';
 // geolocation and native-geocoder
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
-//import { StarRatingModule } from 'ionic5-star-rating';
-//import { BarRatingModule } from 'ngx-bar-rating';
-//import { IonicRatingModule } from 'ionic-rating-component/public-api';
+import { StarRatingModule } from 'ionic5-star-rating';
+
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -28,19 +27,18 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,
     IonicModule,
-    //BarRatingModule,
     IonicStorageModule.forRoot(),
     FormsModule,
     HttpClientModule,
     ComponentsModule,
-    //StarRatingModule,
-    //IonicRatingModule,
+    StarRatingModule,
     IonicModule.forRoot(),
     AppRoutingModule
   ],
@@ -54,8 +52,7 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
     HTTP,
     WebView,
     PhotoService,
-    //BarRatingModule,
-    // StarRatingModule,
+    StarRatingModule,
     // SplashScreen,
     File,
     Camera,

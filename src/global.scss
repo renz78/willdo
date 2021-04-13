@@ -133,11 +133,20 @@ ion-select{
   background-color: #dddddd;
   border-radius: 20px;
   padding: 10px;
+  float: left;
 }
-.tomess{
-  background-color: #ffffff;
+.fieldmess{
+  background-color: #f5f5f7;
   border-radius: 20px;
   padding: 10px;
+}
+.tomess{
+  background-color:#f5f5f7;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: right;
+  width: 75%;
+  float: right;
 }
 .smalltext{
   font-size: small;
@@ -360,4 +369,26 @@ ion-icon {
   border-radius: 12px;
   margin-left: 10px;
   color: #e6e6e2;
+}
+.chaticon{
+  position: relative;
+  top: 1px;
+  left: -3px;
+}
+.above{
+  position: relative;
+  top:-10px;
+  left: 7px;
+}
+.messfield{
+  height: 20px;
+}
+
+div.ex3 {
+  height: 80%;
+  overflow: auto;
+}
+div.ex4{
+  height: 90%;
+  overflow: auto;
 }

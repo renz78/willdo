@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
 import { BehaviorSubject, Observable, from, of, Subject } from 'rxjs';
 import { LoadingController, Platform } from '@ionic/angular';
-import { finalize } from 'rxjs/operators';
+import { take, map, switchMap, tap } from 'rxjs/operators';
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,7 @@ export class UserService {
     public http: HttpClient,
     private http2: HTTP,
     private plt: Platform, 
+    private storage: Storage,
     private loadingCtrl: LoadingController
     ) { }
 
@@ -28,6 +30,26 @@ export class UserService {
     return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/k2shop_category', {}, {
       'Content-Type': 'aplication/json'
     })
+  }
+
+  getChats(userid: string) {
+    return this.http.get('https://willdo.com.ua/p/api/model/chats/id/' + userid);
+  }
+
+  async getChatsNative(userid: string) {
+      return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/chats/id/' + userid, {}, {
+        'Content-Type': 'aplication/json'
+      });
+  }
+
+  getOneChat(from_userid: string, to_userid: string) {
+      return this.http.get('https://willdo.com.ua/p/api/model/chats/from_userid/' + from_userid + '/to_userid/' + to_userid);
+  }
+
+  async getOneChatNative(from_userid: string, to_userid: string) {
+      return this.nativeCall = this.http2.get('https://willdo.com.ua/p/api/model/chats/from_userid/' + from_userid + '/to_userid/' + to_userid, {}, {
+        'Content-Type': 'aplication/json'
+      });
   }
 
   getWorkers() {
@@ -94,7 +116,19 @@ export class UserService {
         'Content-Type': 'aplication/json'
       });
   }
+  newSendMess(messdata) {
+    return this.http.post('https://willdo.com.ua/p/api/model/chats', messdata).pipe(
+      tap(res => {
+        return res;
+      }),
+    );
+  }
 
+  async newSendMessNative(messdata){
+    return this.http2.post('https://willdo.com.ua/p/api/model/chats', messdata, {
+      'Content-Type': 'aplication/json'
+    })
+  }
   func(){
     this.user = 'test';
   }
