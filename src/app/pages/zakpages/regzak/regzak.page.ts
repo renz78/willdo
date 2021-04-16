@@ -1,12 +1,12 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { BehaviorSubject, Observable, from, of, Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-//import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { AuthService } from '../../../services/auth.service';
 import { AlertController, LoadingController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Plugins, CameraResultType, CameraSource} from '@capacitor/core';
+import { UploadService } from '../../../services/upload.service';
+import { Storage } from '@ionic/storage';
 
 
 const { Camera } = Plugins;
@@ -17,23 +17,42 @@ const { Camera } = Plugins;
 })
 export class RegzakPage implements OnInit {
   //image to be displayed in template
- image;
- imageData;
- pagename: string = ' Регистрация заказчика';
+  image;
+  imageData;
+  btntext: any = 'Зарегистрироваться';
+  pagename: string = ' Регистрация заказчика';
+  reg: any = {};
+  check: any = {};
+  res: any = {};
+  isreg: any = false;
+
 constructor(
-    //private camera: Camera,
-    private http: HttpClient,
     private auth: AuthService,
+    private upload: UploadService,
     private router: Router,
     private plt: Platform,
     private alertCtrl: AlertController,
     private sanitizer: DomSanitizer,
+    private storage: Storage,
     ) { }
   ngOnInit() {
+    this.storage.get('authinfo').then( (val) => {
+      if(val){
+        this.isreg = true;
+        this.btntext = 'Сохранить';
+        this.pagename = ' Редактирование данных';
+        this.reg.userid = val.userid;
+        this.reg.fio = val.fio;
+        this.reg.email = val.email;
+        this.reg.address = val.address;
+        this.reg.phone = val.phone;
+        this.reg.rate = val.rate;
+        this.reg.photo = val.photo;
+        this.reg.birth_date = val.birth_date;
+      }
+    })
   }
-  reg: any = {};
-  check: any = {};
-  res: any = {};
+  
 
   checkForm () {
     if (this.reg.password !== this.reg.password2) {
@@ -64,26 +83,14 @@ constructor(
     await alert.present();
   }
 
-  // async regForm2() {
-  //   let regdata = this.reg;
-  //   let check = this.checkForm();
-  //   console.log(check);
-    
-  //   if (check.res === 1) {
-  //     this.auth.regForm(regdata).subscribe(async res => {
-  //       if (res) {
-  //         console.log(res.reg);
-  //       }
-  //     });
-  //   } else {
-  //     const alert = await this.alertCtrl.create({
-  //       header: 'Ошибка регистрации',
-  //       message: check.text,
-  //       buttons: ['OK']
-  //     });
-  //     await alert.present();
-  //   }
-  // }
+  submitForm(){
+    if (this.isreg) {
+      this.updForm();
+    } else {
+      this.regForm();
+    }
+  }
+  
   async regForm() {
     let regdata = this.reg;
     let check = this.checkForm();
@@ -121,6 +128,44 @@ constructor(
     }
   }
 
+
+  async updForm() {
+    let regdata = this.reg;
+    let check = this.checkForm();
+    console.log(check);
+    
+    if (check.res === 1) {
+      if(this.plt.is('capacitor') || this.plt.is('cordova')){
+        let nativeCall = this.auth.updFormNative(this.reg);
+        from(nativeCall).pipe(
+
+          ).subscribe(data => {
+            let res = JSON.parse(data.data)
+            if (res.reg === 1) {
+              this.showAlert('Поздравляем', 'Вы успешно изменили данные');
+              this.router.navigateByUrl('/tabs/profilezak');
+            } else {
+              this.showAlert('ошибка сохранения', res.text);
+            }
+          }, err => {
+            console.log('js call error', err)
+          }
+        )
+      } else {
+        this.auth.updForm(regdata).subscribe(async res => {
+          if (res.reg === 1) {
+            this.showAlert('Поздравляем', 'Вы успешно изменили данные');
+            this.router.navigateByUrl('/tabs/profilezak');
+          } else {
+            this.showAlert('ошибка сохранения', res.text);
+          }
+        });
+      }
+    } else {
+      this.showAlert('Ошибка сохранения', check.text)
+    }
+  }
+
   async captureImage() {
     const image = await Camera.getPhoto({
       quality: 90,
@@ -131,52 +176,9 @@ constructor(
     console.log(image);
     //this.image = this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg; base64,${image.base64String}');
     this.image = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
-    
-  }
-
-//   openCamera(){
-//     const options: CameraOptions = {
-//     quality: 100,
-//     destinationType: this.camera.DestinationType.DATA_URL,
-//     encodingType: this.camera.EncodingType.JPEG,
-//     mediaType: this.camera.MediaType.PICTURE,
-//    }
-
-//     this.camera.getPicture(options).then((imageData) => {
-//     this.imageData = imageData;
-//     this.image=(<any>window).Ionic.WebView.convertFileSrc(imageData);
-//     }, (err) => {
-//        // Handle error
-//        alert("error "+JSON.stringify(err))
-//   });
-// }
-  upload(){
-    let  url = 'https://willdo.com.ua/p/api/model/k2users/event/upload';
-    const date = new Date().valueOf();
-
-    // Replace extension according to your media type
-    const imageName = date+ '.jpeg';
-    // call method that creates a blob from dataUri
-    const imageBlob = this.dataURItoBlob(this.imageData);
-    const imageFile = new File([imageBlob], imageName, { type: 'image/jpeg' })
-
-    let  postData = new FormData();
-    postData.append('file', imageFile);
-
-    let data:Observable<any> = this.http.post(url,postData);
-    data.subscribe((result) => {
-      console.log(result);
-    });
-  }
-
-  dataURItoBlob(dataURI) {
-    const byteString = window.atob(dataURI);
-   const arrayBuffer = new ArrayBuffer(byteString.length);
-    const int8Array = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < byteString.length; i++) {
-      int8Array[i] = byteString.charCodeAt(i);
-     }
-    const blob = new Blob([int8Array], { type: 'image/jpeg' });    
-   return blob;
+    let filepath = this.upload.upload(this.image);
+    setTimeout(() => {
+      this.reg.photo = this.upload.filepath;
+    }, 500);
   }
 }

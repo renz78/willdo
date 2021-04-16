@@ -10,7 +10,10 @@ def capacitor_pods
   # Automatic Capacitor Pod dependencies, do not delete
   pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
   pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
+  pod 'TeamhiveCapacitorVideoRecorder', :path => '..\..\node_modules\@teamhive\capacitor-video-recorder'
+  pod 'CapacitorVideoPlayer', :path => '..\..\node_modules\capacitor-video-player'
   pod 'CordovaPlugins', :path => '../capacitor-cordova-ios-plugins'
+  pod 'CordovaPluginsResources', :path => '../capacitor-cordova-ios-plugins'
   # Do not delete
 end
 

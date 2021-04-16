@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../../services/auth.service';
 import { AlertController, LoadingController, Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { UploadService } from '../../../services/upload.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Plugins, CameraResultType, CameraSource} from '@capacitor/core';
 
@@ -20,6 +21,7 @@ export class NeworderPage implements OnInit {
   constructor(
     private http: HttpClient,
     private auth: AuthService,
+    private upload: UploadService,
     private router: Router,
     private plt: Platform,
     private alertCtrl: AlertController,
@@ -33,6 +35,8 @@ export class NeworderPage implements OnInit {
   
   check: any = {};
   res: any = {};
+  filepath: any = '';
+
   async showAlert(header: string, message: string){
     const alert = await this.alertCtrl.create({
       header: header,
@@ -53,6 +57,34 @@ export class NeworderPage implements OnInit {
   }
 
   checkForm () {
+      let d = new Date(this.reg.datetask);
+      let dt: any = d.getDate();
+      if (dt < 10) {
+        dt = '0' + dt;
+      } 
+      let mn: any = d.getMonth()+1;
+      if (mn < 10) {
+        mn = '0' + mn;
+      } 
+      let yer = d.getFullYear();
+      this.reg.datetask = yer+'-'+mn+'-'+dt;
+      
+      let t = new Date(this.reg.timetask);
+      let hr: any = t.getHours();
+      if (hr < 10) {
+        hr = '0' + hr;
+      } 
+
+      let mi: any = t.getMinutes();
+      if (mi < 10) {
+        mi = '0' + mi;
+      } 
+
+      this.reg.timetask = hr + ':' + mi;
+      console.log(this.reg.datetask);
+      console.log(this.reg.timetask);
+
+      
       if (!this.reg.task_comment) {
         return this.check = {res: 0, text: 'Вы не описали задание'}
       }
@@ -88,7 +120,7 @@ export class NeworderPage implements OnInit {
             let res = JSON.parse(data.data)
             if (res.reg === 1) {
               this.showAlert('Поздравляем', 'Заявка создана');
-              //this.router.navigateByUrl('/tabs/login');
+              this.router.navigateByUrl('/tabs/myorders');
             } else {
               this.showAlert('ошибка', res.text);
             }
@@ -100,7 +132,7 @@ export class NeworderPage implements OnInit {
         this.auth.orderForm(regdata).subscribe(async res => {
           if (res.reg === 1) {
             this.showAlert('Поздравляем', 'Заявка создана');
-            //this.router.navigateByUrl('/tabs/login');
+            this.router.navigateByUrl('/tabs/myorders');
           } else {
             this.showAlert('ошибка', res.text);
           }
@@ -121,6 +153,10 @@ export class NeworderPage implements OnInit {
     console.log(image);
     //this.image = this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg; base64,${image.base64String}');
     this.image = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
+    let filepath = this.upload.upload(this.image);
+    setTimeout(() => {
+      this.reg.photo = this.upload.filepath;
+    }, 500);
   };
-
+  //captureImage().then(alert);
 }

@@ -42,13 +42,13 @@ export class AppComponent {
     {
       name: 'Мой профиль',
       icon: 'person-circle-outline',
-      link: '/tabs/profileisp'
+      link: '/tabs/profilezak'
     },
-    {
-      name: 'Кошелек',
-      icon: 'wallet-outline',
-      link: '/tabs/walletisp'
-    },
+    // {
+    //   name: 'Кошелек',
+    //   icon: 'wallet-outline',
+    //   link: '/tabs/walletisp'
+    // },
     {
       name: 'Мои заказы',
       icon: 'cart-outline',

@@ -23,8 +23,20 @@
     <param name="android-package" value="org.apache.cordova.geolocation.Geolocation"/>
   </feature>
 
+  <feature name="Media">
+    <param name="android-package" value="org.apache.cordova.media.AudioHandler"/>
+  </feature>
+
+  <feature name="Capture">
+    <param name="android-package" value="org.apache.cordova.mediacapture.Capture"/>
+  </feature>
+
   <feature name="NativeGeocoder">
     <param name="android-package" value="cordova.plugin.nativegeocoder.NativeGeocoder"/>
+  </feature>
+
+  <feature name="VideoCapturePlus">
+    <param name="android-package" value="nl.xservices.plugins.videocaptureplus.VideoCapturePlus"/>
   </feature>
 
   <feature name="SocialSharing">

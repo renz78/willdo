@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>profilezak</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-backbtn>{{pagename}}</app-backbtn>
 
-<ion-content>
-
+<ion-content fullscreen>
+  <ion-grid class="ion-margin-top">   
+    <ion-row class="ion-margin-top">
+      <ion-col size="3" offset="1">
+        <div class="ion-text-left">
+          <img class="shareicon" src="https://willdo.com.ua/{{photo}}"><br>
+        </div>
+      </ion-col>
+      <ion-col  >
+        <b>{{fio}}</b><br>
+        <span class="wdotext">Заказчик</span>
+      </ion-col>
+      <ion-col size="1">
+      </ion-col>
+    </ion-row>
+    <ion-row class="">
+      <ion-col size="10" offset="1" >
+        <div class="">
+          <p><b>Адрес </b> <span>{{address}}</span></p>
+          <b>Дата рождения </b> <span>{{birth_date}}</span><br>
+          <b>Мой Email </b> <span>{{email}}</span><br>
+          <b>Мой телефон </b> <span>{{phone}}</span><br>
+          <b>Моя банковская карта </b> <img src="./assets/img/privat.png">
+        </div>
+      </ion-col>
+      
+    </ion-row>
+    <ion-row class="ion-align-self-center">
+        <ion-col class="ion-margin-top">
+          <div class="ion-text-center" >    
+            <ion-button class="primary" style="width:70%" shape="round" routerLink="/tabs/regzak">Изменить данные</ion-button>
+          </div>
+        </ion-col>
+    </ion-row>
+    
+  </ion-grid>   
 </ion-content>

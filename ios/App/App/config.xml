@@ -23,8 +23,20 @@
     <param name="ios-package" value="CDVLocation"/>
   </feature>
 
+  <feature name="Media">
+    <param name="ios-package" value="CDVSound"/>
+  </feature>
+
+  <feature name="Capture">
+    <param name="ios-package" value="CDVCapture"/>
+  </feature>
+
   <feature name="NativeGeocoder">
     <param name="ios-package" value="NativeGeocoder"/>
+  </feature>
+
+  <feature name="VideoCapturePlus">
+    <param name="ios-package" value="VideoCapturePlus"/>
   </feature>
 
   <feature name="SocialSharing">
