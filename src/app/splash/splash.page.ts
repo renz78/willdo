@@ -14,12 +14,12 @@ export class SplashPage implements OnInit {
 
   ngOnInit() {
     this.isshow++;
-    if (this.isshow == 1) {
+    // if (this.isshow == 1) {
       setTimeout(() => {
         this.router.navigateByUrl('tabs/first');
       }, 1000);
-    } else {
-      this.router.navigateByUrl('tabs/second');
-    }
+    // } else {
+    //   this.router.navigateByUrl('tabs/second');
+    // }
   }
 }

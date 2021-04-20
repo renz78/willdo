@@ -169,7 +169,22 @@ const routes: Routes = [
         loadChildren: () => import('../pages/isppages/ordersisp/ordersisp.module').then( m => m.OrdersispPageModule)
       },
     
-      
+      {
+        path: 'paystep1',
+        loadChildren: () => import('../pages/compages/paystep1/paystep1.module').then( m => m.Paystep1PageModule)
+      },
+      {
+        path: 'paystep2',
+        loadChildren: () => import('../pages/compages/paystep2/paystep2.module').then( m => m.Paystep2PageModule)
+      },
+      {
+        path: 'paystep3',
+        loadChildren: () => import('../pages/compages/paystep3/paystep3.module').then( m => m.Paystep3PageModule)
+      },
+      {
+        path: 'paystep0',
+        loadChildren: () => import('../pages/compages/paystep0/paystep0.module').then( m => m.Paystep0PageModule)
+      },  
     
       {
         path: '',

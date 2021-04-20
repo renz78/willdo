@@ -36,6 +36,10 @@ ion-button {
   --background: #d24a43;
 } 
 
+ion-button.blackbtn {
+  --background: #1d1a19;
+} 
+
 ion-toolbar {
   --background: #e6e6e6;
 }
@@ -151,7 +155,11 @@ ion-select{
 .smalltext{
   font-size: small;
 }
-
+.rndor{
+  border: rgb(236, 53, 53);
+  padding: 13px;
+  border-radius: 10%;
+}
 .lang.active{
   background-color: #ff8b00;
   padding: 10px;
@@ -162,6 +170,10 @@ ion-select{
 }
 .smalltext{
   font-size: 14px;
+}
+.steptext{
+  margin-left: 5px;
+  margin-top: 5px;
 }
 .delinp{
   color: #d24a43;
@@ -369,6 +381,20 @@ ion-icon {
   border-radius: 12px;
   margin-left: 10px;
   color: #e6e6e2;
+}
+.numinorang{
+  background-color: #e58b1e;
+  padding: 3px 7px;
+  border-radius: 12px;
+  margin-left: 10px;
+  color: #ffffff;
+}
+.numingrey{
+  background-color: #afafaf;
+  padding: 3px 7px;
+  border-radius: 12px;
+  margin-left: 10px;
+  color: #ffffff;
 }
 .chaticon{
   position: relative;

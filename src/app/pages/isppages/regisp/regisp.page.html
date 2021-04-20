@@ -45,6 +45,7 @@
         </ion-col>
         <ion-col size="10" offset="1">
           <ion-input type="text" hidden required placeholder="фото" [(ngModel)]="reg.photo" name="photo"></ion-input>
+          <ion-input type="text" hidden required placeholder="video" [(ngModel)]="reg.video" name="video"></ion-input>
         </ion-col>
       </ion-row>
       <ion-row >
@@ -61,7 +62,7 @@
           </ion-col>
           <ion-col size="6">
             <div class="ion-text-center"> 
-              <ion-button (click)='getVideo()'>
+              <ion-button (click)='doVideo()'>
                 <ion-icon name="logo-youtube" class="regicon"></ion-icon>
               </ion-button> <br> 
               Загрузить презентацию
@@ -74,6 +75,10 @@
             <div class="ion-text-center" >    
               <img style="width:50%" *ngIf="!reg.photo" [src]="image">
               <img id="regphoto" *ngIf="reg.photo" style="width:50%" src="https://willdo.com.ua/{{reg.photo}}">
+              <video hidden style="width:50%" class="video" #video loop muted webkit-playsinline>
+                <source src="https://willdo.com.ua/{{reg.video}}" types='video/mp4; codecs="h.264"'>
+                <source src="https://willdo.com.ua/{{reg.video}}" types="video/webm">
+              </video>
             </div>
           </ion-col>
         </ion-row>
@@ -85,21 +90,22 @@
         </ion-col>
       </ion-row>
     </form>
+    
     <video class="video" #video autoplay playsinline muted [hidden]="!isRecording"></video>
- 
+    
   <!-- Neccessary for the video player -->
-  <div id="fullscreen" slot="fixed"></div>
+  <!-- <div id="fullscreen" slot="fixed"></div> -->
  
-  <ion-list *ngIf="!isRecording">
+  <!-- <ion-list *ngIf="!isRecording">
     <ion-item *ngFor="let video of videos;" (click)="play(video)" tappable>
       {{ video }}
     </ion-item>
-  </ion-list>
+  </ion-list> -->
  
-  <ion-fab vertical="bottom" horizontal="center" slot="">
-    <ion-fab-button (click)="isRecording ? stopRecord() : recordVideo()">
+  <!-- <ion-fab vertical="bottom" horizontal="center" slot="">
+    <ion-fab-button (click)="isRecording ? stopRecord() : doVideo()">
       <ion-icon [name]="isRecording ? 'stop' : 'videocam'"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
   </ion-grid>   
 </ion-content>

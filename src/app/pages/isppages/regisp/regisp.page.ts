@@ -43,6 +43,9 @@ export class RegispPage implements OnInit {
   bs64: any = '';
   selectedVideo: any = '';
   fileTransfer: any = '';
+  uploadPercent: any = 0;
+  isUploading: any = false;
+  isLoading: any = false;
 constructor(
   private auth: AuthService,
   private upload: UploadService,
@@ -58,7 +61,8 @@ constructor(
   private http: HttpClient,
   private http2: HTTP,
   private transfer: FileTransfer, 
-  private file: File
+  private file: File,
+  public loadingController: LoadingController
     ) { }
 
   ngOnInit() {
@@ -74,6 +78,7 @@ constructor(
         this.reg.phone = val.phone;
         this.reg.rate = val.rate;
         this.reg.photo = val.photo;
+        this.reg.video = val.video;
         this.reg.birth_date = val.birth_date;
       }
     })
@@ -98,6 +103,24 @@ constructor(
     return this.check = {res: 1, text: 'ОК'}
   }
 
+  async presentLoading() {
+    this.isLoading = true;
+    return await this.loadingController.create({
+      // duration: 5000,
+    }).then(a => {
+      a.present().then(() => {
+        console.log('presented');
+        if (!this.isLoading) {
+          a.dismiss().then(() => console.log('abort presenting'));
+        }
+      });
+    });
+  }
+
+  async dismiss() {
+    this.isLoading = false;
+    return await this.loadingController.dismiss().then(() => console.log('dismissed'));
+  }
 
   async showAlert(header: string, message: string){
     const alert = await this.alertCtrl.create({
@@ -197,12 +220,15 @@ constructor(
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Camera
     })
+    this.presentLoading();
     //console.log(image);
     //this.image = this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpeg; base64,${image.base64String}');
     this.image = this.sanitizer.bypassSecurityTrustResourceUrl(image && (image.dataUrl));
     let filepath = this.upload.upload(this.image);
+    
     setTimeout(() => {
       this.reg.photo = this.upload.filepath;
+      this.dismiss();
     }, 500);
   }
 
@@ -217,7 +243,15 @@ constructor(
     }
   }
 
-  async recordVideo() {
+  doVideo(){
+    if(this.plt.is('capacitor') || this.plt.is('cordova')){
+      this.getVideoN()
+    } else {
+      this.getVideo();
+    }
+  }
+
+  async getVideo() {
     // Create a stream of video capturing
     const stream = await navigator.mediaDevices.getUserMedia({
       video: {
@@ -237,17 +271,19 @@ constructor(
     this.mediaRecorder.onstop = async (event) => {
       //console.log(event);
       const videoBuffer = new Blob(chunks, { type: 'video/mp4' });
-      //this.showAlert('Ошибка сохранения', 'test41'+stream.id + '|' + videoBuffer+'wwq');
+      
       //await this.videoService.storeVideo(videoBuffer);
       //console.log(videoBuffer);
-      this.showAlert('Ошибка сохранения', 'test5'+videoBuffer);
+      
       // Reload our list
-      //this.showAlert('Ошибка сохранения', stream.id + '|' + videoBuffer.size);
+     
       //this.videos = this.videoService.videos;
       //console.log(this.videoService.curentvideo);
-      //this.showAlert('Ошибка сохранения', this.videoService.curentvideo);
+      
       //let bs64 = this.videoService.curentvideo;
+      this.presentLoading();
       this.uploadVideo(videoBuffer);
+      
       this.changeDetector.detectChanges();
     }
 
@@ -265,10 +301,10 @@ constructor(
   }
 
   uploadVideo(bs64){
-    console.log(bs64)
+    //console.log(bs64)
 
     let  url = 'https://willdo.com.ua/p/api/model/k2users/event/upload';
-    this.showAlert('Grebanyi bs64', 'sdfsdfsdfsdhfksdhfkjsdf');
+    //this.showAlert('Grebanyi bs64', 'sdfsdfsdfsdhfksdhfkjsdf');
     const blobToBase64 = blob => {
       const reader = new FileReader();
       reader.readAsDataURL(blob);
@@ -287,8 +323,6 @@ constructor(
       }
       this.bs64 = res
      
-      console.log(base64);
-      
       //let postData = new FormData();
       //postData.append('file', bs64);
       if(this.plt.is('capacitor') || this.plt.is('cordova')){
@@ -305,15 +339,23 @@ constructor(
           }
         )
       } else {
+        
         let data:Observable<any> = this.http.post(url,postData);
         data.subscribe((result) => {
-          this.filepath = result.filepath;
+          // this.filepath = result.filepath;
+          setTimeout(() => {
+            
+            this.reg.video = result.filepath;
+            console.log(this.reg.video);
+            this.dismiss();
+          }, 2000);
+          
         });
       }
     });
   }
 
-  getVideo(){
+  getVideoN(){
     /**mediacapture */
   //   let options: CaptureImageOptions = { limit: 3 }
   //   this.mediaCapture.captureImage(options)
@@ -341,9 +383,9 @@ constructor(
         var resolvedPath = media.fullPath;
       }
       this.selectedVideo = resolvedPath;
+      this.presentLoading();
       this.uploadHandler();
       //let media = mediafile[0];
-      this.showAlert('Ошибка сохранения', '555');
       console.log(mediafile);
     },
     (error) => {
@@ -369,11 +411,11 @@ constructor(
   //  this.videoFileUpload = this.transfer.create();
   //  this.isUploading = true;
   //  this.videoFileUpload.upload(this.selectedVideo, url, options)
-  //    .then((data)=>{
-  //      this.isUploading = false;
-  //      this.uploadPercent = 0;
-  //      return JSON.parse(data.response);
-  //    })
+    //  .then((data)=>{
+    //    this.isUploading = false;
+    //    this.uploadPercent = 0;
+    //    return JSON.parse(data.response);
+    //  })
   //    .then((data) => {
   //      this.uploadedVideo = data.url;
   //      console.log('Successful upload')
@@ -390,7 +432,7 @@ constructor(
 
   uploadHandler() {
     this.fileTransfer = this.transfer.create();
-    var filename = 'tytwyetywqugjabjmzsB';
+    var filename = 'myvideo';
       var url = 'https://willdo.com.ua/p/api/model/k2users/event/upload'
     var options: FileUploadOptions = {
       fileName: filename,
@@ -399,15 +441,27 @@ constructor(
       headers: {}
     }
 
-    this.fileTransfer.upload(this.selectedVideo, url, options).then((res) => {
-        console.log("file uploaded successfully.", res)
-        //this.uploaded = true;
-        this.showAlert('Загрузка завершена:', '');
-      }).catch((error) => {
-        //here logging an error. 
-        //this.showAlert('upload failed:', JSON.stringify(error));
-        console.log('upload failed: ' + JSON.stringify(error));
+    this.fileTransfer.upload(this.selectedVideo, url, options)
+    // .then((res)=>{
+    //   this.isUploading = false;
+    //   this.uploadPercent = 0;
+    //   //return JSON.parse(res.response);
+    // })
+    .then((res) => {
+      console.log("file uploaded successfully.", res)
+      //this.uploaded = true;
+      this.dismiss();
+      let rez = JSON.parse(res.response);
+      this.reg.video = rez.filepath
+      this.showAlert('Загрузка завершена:', '');
+    }).catch((error) => {
+      //here logging an error.
+      this.uploadPercent = 0; 
+      console.log('upload failed: ' + JSON.stringify(error));
     })
+    // this.fileTransfer.onProgress((data) => {
+    //   this.uploadPercent = Math.round((data.loaded/data.total) * 100);
+    // });
   }
  
 

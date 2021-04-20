@@ -1,0 +1,62 @@
+<app-backbtn>{{pagename}}</app-backbtn>
+
+<ion-content fullscreen>
+  <ion-grid class="ion-margin-top">   
+    <ion-row class="ion-margin-top">
+      <ion-col size="3" offset="1">
+        <div class="ion-text-left">
+          <img class="shareicon" src="https://willdo.com.ua/{{  photo}}"><br>
+        </div>
+      </ion-col>
+      <ion-col  >
+        <b>{{fio}}</b><br>
+        <span class="wdotext">Специалист</span>
+        <app-explore-container></app-explore-container>
+        <!-- <app-rating [(rating)]="rating" ></app-rating> -->
+      </ion-col>
+      <ion-col size="1">
+      </ion-col>
+    </ion-row>
+    <ion-row class="">
+      <ion-col size="11" offset="1" >
+          <h2><b>Платный аккаунт</b> </h2>
+          <span>Пополните свой счет на форуме, это гарантия</span><br>
+          <span>быстрой и качественной связи с заказчиком</span>
+      </ion-col>
+      <ion-col size="10" offset="1" >
+        <div class="ion-text-center" > 
+          <span><b>На Вашем счету</b></span><br>
+          <h2><b>520 грн.</b></h2>
+        </div>
+      </ion-col>
+      <ion-col size="11" offset="1" >
+        <span class="">Выберите удобный для себя способ оплаты</span>
+      </ion-col>
+      <ion-col size="10" offset="1">
+        <ion-select interface="popover" name="cash">
+          <ion-select-option value="cash" selected >Наличные</ion-select-option>
+          <ion-select-option value="card" >Банковская карта</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-self-center">
+      <ion-col class="ion-margin-top">
+        <div class="ion-text-center" >    
+          <ion-button class="blackbtn" style="width:60%" shape="round" routerLink="/tabs/paystep1">Пополнить счет</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-self-center">
+      <ion-col size="11" offset="1" >
+        <br><span>Оплата за услугу 55 грн</span><br>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-self-center">
+        <ion-col class="ion-margin-top">
+          <div class="ion-text-center" >    
+            <ion-button class="primary" style="width:60%" shape="round" routerLink="/tabs/paystep1">Оплатить услугу</ion-button>
+          </div>
+        </ion-col>
+    </ion-row>
+  </ion-grid>   
+</ion-content>

@@ -1,0 +1,43 @@
+<app-backbtn>{{pagename}}</app-backbtn>
+
+<ion-content fullscreen>
+  <ion-row class="ion-align-self-center">
+    <ion-col class="ion-margin-top" size="1">
+      <span class="numinorang">1</span>
+    </ion-col>
+    <ion-col class="steptext" size="3">
+      <span class="smalltext ">Данные плательщика</span>
+    </ion-col>
+    <ion-col class="ion-margin-top" size="1">
+      <span class="numingrey">2</span>
+    </ion-col>
+    <ion-col class="steptext" size="2">
+      <span class="smalltext ">Данные карты</span>
+    </ion-col>
+    <ion-col class="ion-margin-top" size="1">
+      <span class="numingrey">3</span>
+    </ion-col>
+    <ion-col class="steptext" size="3">
+      <span class="smalltext ">Подтверждение платежа</span>
+    </ion-col>
+  </ion-row>
+  
+  <ion-row class="ion-align-self-center ion-margin-bottom">
+    <ion-col size="10" offset="1" >
+      <h2><b>Сумма к оплате</b> </h2>
+      <ion-input type="text" required placeholder="100 грн." name="sum" [(ngModel)]="sum" ></ion-input>
+    </ion-col>
+    <ion-col class="ion-margin-top">
+      <div class="ion-text-center" >    
+        <ion-button class="primary" style="width:60%" shape="round" routerLink="/tabs/paystep2">Продолжить</ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row class="ion-margin-top">
+        
+      <ion-col class="ion-margin-top">
+        <img src="./assets/img/pays.jpg"  style="width:100%">
+      </ion-col>
+    
+  </ion-row>
+</ion-content>
